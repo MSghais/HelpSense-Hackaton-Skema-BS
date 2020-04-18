@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+D:\HACKATON-PROJECT\HelpSense\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3395714232.index
+2083157142.index
+3929933826.index
+1165623897.index
+1158233253.index
+1690713356.index
+3988951209.index
+827843834.index
