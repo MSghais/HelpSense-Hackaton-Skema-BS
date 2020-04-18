@@ -6,4 +6,3 @@ INDEX VERSION 1.4+D:\HACKATON-PROJECT\HelpSense\.metadata\.plugins\org.eclipse.w
 1158233253.index
 1690713356.index
 3988951209.index
-827843834.index

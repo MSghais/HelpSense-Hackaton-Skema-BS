@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Rubriques;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.metier.theme.MetierInterfaceTheme;
 import contenu.model.ModelAllContent;
@@ -66,6 +67,25 @@ public class CreationArticleMVC extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 	        /* Préparation de l'objet formulaire */
 	    	System.out.println("doPOST entree");
+	    	
+	    	
+	    	ModelAllContent modelAll = new ModelAllContent();
+	    	 
+	    	Map<Rubriques, String> lookUp = Rubriques.setLookUpValues();
+	    	System.out.println(lookUp);
+	    	request.setAttribute("lookRubrique", lookUp);
+	    	
+	    	//String urlVueMVC = "WEB-INF/JSP/ajouterArticle.jsp";
+	       	Rubriques[] rubValues = Rubriques.values();
+	       	Rubriques.getAllStringVal();
+	       	
+	       	rubValues.toString();
+	    	request.setAttribute("rubValues", rubValues);
+	    	
+	    	 Rubriques[] rubriqueVal = Rubriques.getAllStringVal();
+			 request.setAttribute("rubriqueVal", rubriqueVal);
+			 modelAll.setRubriquesAll(rubValues);
+			 
 	
 	    		ModelAllContent modelTheme = new ModelAllContent();
 	    		List<Theme> themes = metierTheme.lireTousTheme();

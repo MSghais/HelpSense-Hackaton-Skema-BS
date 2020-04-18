@@ -7,6 +7,8 @@ import java.util.Map;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import interaction.entite.Commande;
 import utilisateurs.entite.User;
 
@@ -25,6 +27,10 @@ public class ModelAllContent {
 	private List<Theme> themes;
 
 	private Map<Long,Article> articlesMap;
+	
+	private Rubriques []  rubriquesAll;
+	private Secteur [] secteurAll;
+
 	
 	public ModelAllContent() {
 
@@ -59,6 +65,29 @@ public class ModelAllContent {
 	}
 
 
+	public Rubriques[] getRubriquesAll() {
+		return rubriquesAll;
+	}
+
+
+
+	
+
+	public List<Commande> getCommandes() {
+		return commandes;
+	}
+
+	public void setCommandes(List<Commande> commandes) {
+		this.commandes = commandes;
+	}
+
+	public Secteur[] getSecteurAll() {
+		return secteurAll;
+	}
+
+	public void setSecteurAll(Secteur[] secteurAll) {
+		this.secteurAll = secteurAll;
+	}
 
 	public Article getArticleAchat() {
 		return articleAchat;
@@ -127,6 +156,11 @@ public class ModelAllContent {
 		
 		articlesMap.put(user.getUser_id(), article);
 	
+	}
+
+	public void setRubriquesAll(Rubriques[] rubValues) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

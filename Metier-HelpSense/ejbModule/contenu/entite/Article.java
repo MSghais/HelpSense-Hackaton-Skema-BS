@@ -48,6 +48,9 @@ public class Article {
 	@JoinColumn(name="vendeur_id")
 	private User vendeur;
 
+	/*
+	 * private Long like=0L; private Long dislike=0L;
+	 */
 	
 	protected StatutArticle status;
 	
@@ -60,7 +63,7 @@ public class Article {
 
 
 	public Article() {}
-	
+
 	
 
 	

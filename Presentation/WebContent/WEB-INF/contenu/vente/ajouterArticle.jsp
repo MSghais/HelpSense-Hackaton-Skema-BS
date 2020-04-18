@@ -38,6 +38,65 @@
                 <span class="erreur">${form.erreurs['art_titre']}</span>
                 <br />
                 
+                
+                	<label for="rubrique_name"> Look Up <span class="requis">* </span> </label>
+							
+							 <select name="rubriqueLook" > 
+							 
+							 
+						<c:forEach var="rubriqueLook" items="${lookRubrique}">
+									
+									<option> <c:out value="${rubriqueLook}"/> </option>
+									
+									
+							</c:forEach>
+					</select>
+
+	
+	
+				
+			<label for="rubrique_name"> Request Rubrique <span class="requis">* </span> </label>
+							
+							 <select name="rubriqueName" > 
+							 
+							 
+						<c:forEach var="rubriqueVal" items="${rubValues}">
+									
+									<option> <c:out value="${rubriqueVal}"/> </option>
+									
+									
+							</c:forEach>
+					</select>
+				
+			<label for="secteur_name"> Request Secteur <span class="requis">* </span> </label>
+					<select> 
+							
+							
+										<c:forEach var="secteurVal" items="${secteurValues}}">
+									
+									<option> <c:out value="${secteurVal}"/> </option>
+									
+									
+									</c:forEach>
+                
+					
+					</select>
+					
+					<label for="secteur_name"> Request Secteur <span class="requis">* </span> </label>
+					<select> 
+							
+							
+										<c:forEach var="secteur" items="${requestScope.secteurValues}}">
+									
+									<option> <c:out value="${secteur}"/> </option>
+									
+									
+									</c:forEach>
+                
+					
+					</select>
+					
+					
 		         <select name="acronymeTheme"> 
 					
 					<c:forEach var="theme" items="${modelTheme.themes }">

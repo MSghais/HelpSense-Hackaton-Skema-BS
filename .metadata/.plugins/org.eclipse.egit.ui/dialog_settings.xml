@@ -2,7 +2,31 @@
 <section name="Workbench">
 	<item key="GitSelectRepositoryPage.lastRepository" value="C:\Users\Mokht\git\Hackaton-v0.1\.git"/>
 	<list key="RepositorySelectionPage.UsedUris">
+		<item value="file:///D:\HACKATON-PROJECT\Project\HelpSense\Hackaton-HelpSense"/>
+		<item value="file:///C:\Users\Mokht\git\HelpSense"/>
 		<item value="file:///C:\Users\Mokht\OneDrive\Bureau\TEAM-SOURCE\CESI\J2E\commerce-v1\test-commerce"/>
 		<item value="file:///C:\Users\Mokht\OneDrive\Bureau\TEAM-SOURCE\Hackaton-19.04\J2E\Hackaton-Crisis-Education"/>
 	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\Mokht\git\HelpSense\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\Mokht\git\Hackaton\HelpSense\.git">
+			<item value="false"/>
+			<item value="MSghais &lt;msghais135@gmail.com&gt;"/>
+			<item value="Create branche"/>
+			<item value="MSghais &lt;msghais135@gmail.com&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+		<list key="C:\Users\Mokht\git\Hackaton-HelpSense\.git">
+			<item value="empty"/>
+		</list>
+	</section>
 </section>
