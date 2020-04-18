@@ -15,7 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
+import contenu.entite.Hashtag;
 import contenu.entite.Theme;
+
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.enume.StatutArticle;
 import contenu.persistance.article.PersistanceArticleItf;
 import contenu.persistance.theme.PersistanceThemeItf;
@@ -138,7 +143,7 @@ public class MetierArticle implements MetierInterfaceArticle {
 
 		Article article = new Article();
 
-		if(request.getParameter("acroynymeTheme") != null) {
+		if(request.getParameter("acronymeTheme") != null) {
 			
 			String acronymeTheme = request.getParameter("acronymeTheme");
 			System.out.println(acronymeTheme);
@@ -147,7 +152,54 @@ public class MetierArticle implements MetierInterfaceArticle {
 			article.setTheme(theme);
 			
 		}
+		
+		if(request.getParameter("hashtag") != null) {
+			
+			String hashtag_inti = request.getParameter("hashtag");
+			System.out.println(hashtag_inti);
+			Hashtag hashtag = new Hashtag();
+			
+			hashtag.setIntitule(hashtag_inti);
+			article.getHashtags().add(hashtag);
+			
+		}
+		
+		
+		if(request.getParameter("rubriqueName") != null) {
+			
+			String rubriqueVal = request.getParameter("rubriqueName");
+			System.out.println(rubriqueVal);
+			
+			Rubriques rubrique = Rubriques.valueOfLabel(rubriqueVal);
+			article.setRubrique(rubrique);
+			
+		}
+		
 
+		if(request.getParameter("paysName") != null) {
+			
+			String paysVal = request.getParameter("paysName");
+			System.out.println(paysVal);
+			
+			Pays pays = Pays.valueOfLabel(paysVal);
+			article.setPays(pays);
+			
+		}
+		
+		if(request.getParameter("secteurName") != null) {
+			
+			String secteurVal = request.getParameter("secteurName");
+			System.out.println(secteurVal);
+			
+			Secteur secteur = Secteur.valueOf(secteurVal);
+			article.setSecteur(secteur);
+			
+		}
+		
+		
+		
+		
+		
 		
 		System.out.println("Test des exceptions du formulaire a partir du MEtier");
 		System.out.println("Test  metier : titre ");
@@ -548,6 +600,24 @@ public class MetierArticle implements MetierInterfaceArticle {
 	@Override
 	public void updateArticleStatut(Article article, StatutArticle status) {
 		persistanceArticle.updateArticleStatut(article, status);
+	}
+
+	@Override
+	public List<Article> selectArticleBySecteur(Secteur secteur) {
+		// TODO Auto-generated method stub
+		return persistanceArticle.selectArticleBySecteur(secteur);
+	}
+
+	@Override
+	public List<Article> selectArticleByRubrique(Rubriques rubriques) {
+		// TODO Auto-generated method stub
+		return persistanceArticle.selectArticleByRubrique(rubriques);
+	}
+
+	@Override
+	public List<Article> selectArticleByPays(Pays pays) {
+		// TODO Auto-generated method stub
+		return persistanceArticle.selectArticleByPays(pays);
 	}
 
 }

@@ -3,7 +3,9 @@ package interaction.entite;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +28,8 @@ public class Commentaire {
 	
 
 	@Id 
+	private Long id;
+	
 	private String contenu;
 	
 
@@ -47,7 +51,13 @@ public class Commentaire {
 	private User user;
 	
 	
+	  @ManyToMany
+	  @JoinTable(name="response_commentaire", joinColumns=@JoinColumn(name="contenu_response"), inverseJoinColumns=@JoinColumn(name="commentaire_id") ) 
+	//  private HashMap<Long, List<Long> >  responsesCommentaire = new HashMap<Long, List<Long> >();
+	  private List<Commentaire> responsesCommentaire;
 	
+	
+	 
 	/*
 	 * @OneToOne(optional = true) private Dislike dislike;
 	 * 
@@ -72,6 +82,18 @@ public class Commentaire {
 	 * @JoinColumn(name="article_id") private Article article;
 	 */
 	
+
+
+	public List<Commentaire> getResponsesCommentaire() {
+		return responsesCommentaire;
+	}
+
+
+	public void setResponsesCommentaire(List<Commentaire> responsesCommentaire) {
+		this.responsesCommentaire = responsesCommentaire;
+	}
+
+
 	public Commentaire(String contenu) {
 		super();
 		this.contenu = contenu;
@@ -156,9 +178,23 @@ public class Commentaire {
 	public Commentaire() {
 		// TODO Auto-generated constructor stub
 	}
-
-
 	
+	
+
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
 	public String getContenu() {
 		return contenu;
 	}

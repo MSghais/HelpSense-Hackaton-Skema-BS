@@ -10,8 +10,11 @@ import javax.transaction.Transactional;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.enume.StatutArticle;
-
+import interaction.entite.Commentaire;
 import utilisateurs.entite.User;
 
 
@@ -59,7 +62,7 @@ public class PersisterArticle implements PersistanceArticleItf{
 	@Override
 	public List<Article> selectArticleByTheme(String theme) {
 		// TODO Auto-generated method stub
-		Query req = entityManager.createQuery("select a from Article a  where a.theme.theme_intitule =: theme ");
+		Query req = entityManager.createQuery("select a from Article a  where a.theme.intitule =: theme ");
 		req.setParameter("theme", theme);
 		return req.getResultList();
 		
@@ -191,6 +194,63 @@ public class PersisterArticle implements PersistanceArticleItf{
 			user.addAchatArticles(article);
 		
 			user.getAchatArticles().add(article);
+	}
+
+
+	@Override
+	public List<Article> selectArticleBySecteur(Secteur secteurVal) {
+		List<Article> articlesBySecteur;
+		try {
+			
+			Query req = entityManager.createQuery("select a from Article a  where a.secteur =: secteurVal");
+			req.setParameter("secteurVal", secteurVal);
+			//req.setParameter("status", StatutCommentaire.RESERVE);
+			articlesBySecteur = (	List<Article> ) req.getResultList();
+		}catch(Exception e) {
+			
+			articlesBySecteur=null;
+		}
+		
+			return articlesBySecteur;
+			
+	}
+
+
+	@Override
+	public List<Article> selectArticleByRubrique(Rubriques rubriques) {
+		
+		List<Article> articlesByRubrique;
+		try {
+			
+			Query req = entityManager.createQuery("select a from Article a  where a.rubrique =: rubriques");
+			req.setParameter("rubriques", rubriques);
+			//req.setParameter("status", StatutCommentaire.RESERVE);
+			articlesByRubrique = (	List<Article> ) req.getResultList();
+		}catch(Exception e) {
+			
+			articlesByRubrique=null;
+		}
+		
+			return articlesByRubrique;
+	}
+
+
+	@Override
+	public List<Article> selectArticleByPays(Pays pays) {
+		// TODO Auto-generated method stub
+		List<Article> articlesByPays;
+		try {
+			
+			Query req = entityManager.createQuery("select a from Article a  where a.pays =: pays");
+			req.setParameter("pays", pays);
+			//req.setParameter("status", StatutCommentaire.RESERVE);
+			articlesByPays = (	List<Article> ) req.getResultList();
+		}catch(Exception e) {
+			
+			articlesByPays=null;
+		}
+		
+			return articlesByPays;
 	}
 	
 

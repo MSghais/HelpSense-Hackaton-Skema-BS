@@ -21,6 +21,7 @@ import contenu.entite.Article;
 import contenu.entite.Theme;
 import contenu.enume.Pays;
 import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.metier.theme.MetierInterfaceTheme;
 import contenu.model.ModelAllContent;
@@ -30,8 +31,8 @@ import utilisateurs.model.ModelUser;
 
 
 
-@WebServlet("/Shopping")
-public class ToutArticles extends HttpServlet { 
+@WebServlet("/choixContenu")
+public class ChoixContenu extends HttpServlet { 
 	//private MetierItf metier = MetierEtudiantPromo.getInstance(); 
 	
 	@EJB
@@ -52,11 +53,11 @@ public class ToutArticles extends HttpServlet {
 	public static final String ATTRIBUT_ARTICLE_ACHAT      = "acheterArticle";
     public static final String ATTRIBUT_ERREUR_MSG   = "msgErreur";
     
-    public static final String VUE_COMMANDE   = "WEB-INF/contenu/vente/ajouterArticle.jsp";
+    public static final String VUE_CHOIX   = "WEB-INF/contenu/vente/choixContent.jsp";
 
 	private String erreurMsg;
 
-	public static final String VUE   = "WEB-INF/contenu/toutArticles.jsp";
+	
 	
 	@PostConstruct
 	public void init() {
@@ -111,7 +112,7 @@ public class ToutArticles extends HttpServlet {
 		List<Article> articles = metierArticle.lireTousArticle();
 		modelContenu.setArticles(articles);
 		request.setAttribute("modelContenu", modelContenu);
-		request.getRequestDispatcher(VUE).forward(request, response); 
+		request.getRequestDispatcher(VUE_CHOIX).forward(request, response); 
 			
 	
 			if(request.getParameter("choixTheme") != null ) {
@@ -129,54 +130,74 @@ public class ToutArticles extends HttpServlet {
 				modelContenuSelect.setArticles(articlesThemes);
 				request.setAttribute("modelContenuSelect", modelContenuSelect);
 			
+				request.getRequestDispatcher(VUE_CHOIX).forward(request, response); 
+				
 				
 				}
 			
 			
 			if(request.getParameter("choixRubrique") != null ) {
-				System.out.println("condition select theme");
+				System.out.println("condition choixRubrique");
 				
-				
-			
 		    	
-		    	
-				String theme_id = String.valueOf(request.getParameter("acronymeTheme"));
-				
-				
-				System.out.println("theme =" + theme_id);
+				String rubriques = String.valueOf(request.getParameter("choixRubrique"));
+				Rubriques label = Rubriques.valueOfLabel(rubriques);
 				
 				ModelContenu modelContenuSelect = new ModelContenu(); 
 				
-				System.out.println("select Article By Theme");
+				System.out.println("select Article By choixRubrique");
 				
-				List<Article> articlesThemes = metierArticle.selectArticleByTheme(theme_id);
+				List<Article> articlesThemes = metierArticle.selectArticleByRubrique(label);
 				modelContenuSelect.setArticles(articlesThemes);
 				request.setAttribute("modelContenuSelect", modelContenuSelect);
+				
+				request.getRequestDispatcher(VUE_CHOIX).forward(request, response); 
+				
+			
+				
+				}
+			
+			if(request.getParameter("choixSecteur") != null ) {
+				System.out.println("condition choixSecteur");
+				
+		    	
+				String secteurs = String.valueOf(request.getParameter("choixSecteur"));
+				Secteur labelSecteur = Secteur.valueOf(secteurs);
+				
+				ModelContenu modelContenuSelect = new ModelContenu(); 
+				
+				System.out.println("select Article By choixSecteur");
+				
+				List<Article> articlesSecteur = metierArticle.selectArticleBySecteur(labelSecteur);
+				modelContenuSelect.setArticles(articlesSecteur);
+				request.setAttribute("modelContenuSelect", modelContenuSelect);
+				
+				request.getRequestDispatcher(VUE_CHOIX).forward(request, response); 
+				
 			
 				
 				}
 			
 			
 			if(request.getParameter("choixPays") != null ) {
-				System.out.println("condition select theme");
+				System.out.println("condition choixPays");
 				
 				
-			
-		    	
-		    	
-				String theme_id = String.valueOf(request.getParameter("acronymeTheme"));
-				
-				
-				System.out.println("theme =" + theme_id);
+				String paysSelect = String.valueOf(request.getParameter("choixPays"));
+				Pays labelPays = Pays.valueOfLabel(paysSelect);
 				
 				ModelContenu modelContenuSelect = new ModelContenu(); 
 				
-				System.out.println("select Article By Theme");
+				System.out.println("select Article By choixPays");
 				
-				List<Article> articlesThemes = metierArticle.selectArticleByTheme(theme_id);
-				modelContenuSelect.setArticles(articlesThemes);
+				List<Article> articlesPays= metierArticle.selectArticleByPays(labelPays);
+				modelContenuSelect.setArticles(articlesPays);
 				request.setAttribute("modelContenuSelect", modelContenuSelect);
-			
+				
+				request.getRequestDispatcher(VUE_CHOIX).forward(request, response); 
+				
+		    	
+		    	
 				
 				}
 			

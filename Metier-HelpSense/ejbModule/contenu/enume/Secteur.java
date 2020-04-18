@@ -13,6 +13,13 @@ public enum Secteur {
 	
 	
 	/*
+	 * public static Secteur getValueOf(String value) { Secteur values = null;
+	 * for(Secteur rub : Rubriques.values()) { values = Secteur.get(value); } return
+	 * values; }
+	 */
+
+	
+	/*
 	 * 
 	 * 
 	 * 

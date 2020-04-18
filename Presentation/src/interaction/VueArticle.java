@@ -29,6 +29,7 @@ public class VueArticle extends HttpServlet {
 	@EJB 
 	MetierInterfaceArticle metier;
 	
+	  public static final String VUE_ARTICLE   = "WEB-INF/contenu/vente/vueArticle.jsp";
 	
 	@PostConstruct
 	public void init() {
@@ -42,8 +43,8 @@ public class VueArticle extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MyServlet doPost");
-		String urlVue = "WEB-INF/contenu/vente/vueArticle.jsp";
-		request.getRequestDispatcher(urlVue).forward(request, response); 
+	
+	//	request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
 		
 	   ModelContenu modelVoir = new ModelContenu();
 		//ModelContenu model = new ModelContenu(); 
@@ -61,23 +62,25 @@ public class VueArticle extends HttpServlet {
 		   modelVoir.setArticle(article);
 		   request.setAttribute("modelVoir", modelVoir);
 		   
+			request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
+		   
 		   
 		   if(request.getParameter("commentaire") != null) {
 			   
+			   
+			   
+				request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
 		   }
 		   
 	   }
 		   
 		  // if( request.getParameter(arg0) != null )
-		if(request.getParameter("creationArticle") != null){
-			
+		
 			
 			if(request.getParameter("acronymeTheme") != null){
 				  String theme = request.getParameter("theme");
 			        
-			}
-			
-			 String theme = request.getParameter("theme");
+		
 
 	      
 	        String nom = request.getParameter("art_titre");
@@ -109,7 +112,7 @@ public class VueArticle extends HttpServlet {
 	        metier.persisterArticle(articleLInk);
 	        //this.getServletContext().getRequestDispatcher("/WEB-INF/vueInscription.jsp").forward(request, response);
 		
-	        request.getRequestDispatcher(urlVue).forward(request, response); 
+	    //    request.getRequestDispatcher(urlVue).forward(request, response); 
 	       
 
 	       // this.getServletContext().getRequestDispatcher("/WEB-INF/vueInscription.jsp").forward(request, response);

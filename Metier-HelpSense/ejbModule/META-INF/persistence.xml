@@ -27,9 +27,7 @@
 					<class>interaction.entite.Commande</class>	
 
 
-			<class>interaction.entite.Dislike</class>	
-			
-				<class>interaction.entite.Like</class>
+
 			
 			<class>interaction.entite.Commentaire</class>	
 			
@@ -40,8 +38,7 @@
 		<properties>
 		<!--  
 		
-		<property name="javax.persistence.schema-generation.database.action" value="create"/>
-			
+		
 				
 	<		
 					
@@ -49,22 +46,26 @@
 					 
 	
 	<
-<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+ 
+				     <property name="javax.persistence.schema-generation.database.action" value="create"/>
+			
+				
+
+		
+		
+				 
+				   		<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 	
 		
-		
-		
+				  
 				 
 			
 				  -->	
 				  
-				   
-				   
+				  
 				  <property name="javax.persistence.schema-generation.database.action" value="none"/>	
 		
 					 	
-		
-				  
 	
 		</properties>  
 				

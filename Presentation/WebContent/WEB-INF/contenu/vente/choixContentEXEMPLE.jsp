@@ -9,6 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	
 		<%@ page import="contenu.enume.Pays" %>
+		    
+    		<%@ page import="contenu.enume.Secteur" %>
 		  
 		
 	</head>
@@ -43,7 +45,7 @@
 								</c:if>
 	<div >
 									
-	<form action="toutArticles" method="post">
+	<form action="choixContenu" method="post">
 	<table >
 		
 			<thead>  				<th> Pays </th> <th> Titre </th> 	
@@ -109,7 +111,7 @@
 										
 										
 										
-										<form action="Shopping" method="post">			
+										<form action="choixContenu" method="post">			
 								<label for="paysVal"> Actu Nationale ?<span class="requis">* </span> </label>
 							
 		         <select name="paysName"> 
@@ -194,7 +196,7 @@
 					
 					
 					
-				<form action="Shopping" method="post">		
+				<form action="choixContenu" method="post">		
 			<label for="rubrique_name"> Rubrique de l'Article <span class="requis">* </span> </label>
 							
 							 <select name="rubriqueName" > 
@@ -277,7 +279,7 @@
 					
 					
 		
-		<form action="Shopping" method="post">
+		<form action="choixContenu" method="post">
 		
 		<label>  Choissisez un Theme : </label>
 					
@@ -288,6 +290,7 @@
 					<option> <c:out value="${theme.theme_intitule}"/> </option>
 					
 					
+							
 							
 					</c:forEach>
 					
@@ -441,6 +444,11 @@
 					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
 					 
  		
+ 		
+					
+						 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
+ 
+							
 	
 				
 					

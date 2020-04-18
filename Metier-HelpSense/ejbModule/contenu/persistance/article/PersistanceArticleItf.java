@@ -4,6 +4,9 @@ import java.util.List;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.enume.StatutArticle;
 import utilisateurs.entite.User;
 
@@ -21,6 +24,9 @@ public interface PersistanceArticleItf {
 	
 
 
+	List<Article> selectArticleBySecteur(Secteur secteur);
+	List<Article> selectArticleByRubrique(Rubriques rubriques);
+	List<Article> selectArticleByPays(Pays pays);
 	
 	void persisterUserArticle(User user, Article article);
 	Article selectArticleTitre(String titre);

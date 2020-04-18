@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.enume.StatutArticle;
 import utilisateurs.entite.User;
 
@@ -40,6 +43,11 @@ public interface MetierInterfaceArticle {
 	List<Article> lireTousArticle();
 	List<Article> selectArticleByTheme(String theme);
 	List<Article> lireTousArticleByUserVente(Long user_id);
+	
+	
+	List<Article> selectArticleBySecteur(Secteur secteur);
+	List<Article> selectArticleByRubrique(Rubriques rubriques);
+	List<Article> selectArticleByPays(Pays pays);
 	
 	String getValeurChamp(HttpServletRequest request, String nomChamp);
 	

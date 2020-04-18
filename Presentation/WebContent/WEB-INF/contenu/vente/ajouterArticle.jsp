@@ -15,6 +15,7 @@
     <%@ include file="/WEB-INF/headerPhantom.jsp" %>
     <body>
     
+    		<%@ page import="contenu.enume.Secteur" %>
     
     <a href="WEB-INF/JSP/vueConnection.jsp"> Vous n'êtes pas connecté ?</a>
 		
@@ -27,25 +28,21 @@
 		<fieldset>
 		
 
-						<c:if test="${ !empty msgErreurArticle }">
-						 <span class="erreur">${form.erreurs}</span>
-						<c:out value="${ msgErreurArticle }"></c:out>
-						</c:if>  
-	        		
-				
-				
-				
-			
-					
-								<label for="paysVal"> Actu Nationale ?<span class="requis">* </span> </label>
+
+				<c:if test="${ !empty msgErreurArticle }">
+				 <span class="erreur">${form.erreurs}</span>
+				<c:out value="${ msgErreurArticle }"></c:out>
+				</c:if>  
+	
+						
+				<label for="paysVal"> Actu Nationale ?<span class="requis">* </span> </label>
 							
-		         <select name="paysVal"> 
+		         <select name="paysName"> 
 					
-					<c:forEach var="pays" items="${paysListe }">
-					<option> <c:out value="${pays}"/> </option>
+					<c:forEach var="paysVal" items="${paysListe }">
+					<option> <c:out value="${paysVal}"/> </option>
 					
-					
-							
+		
 					</c:forEach>
 					
 					</select>
@@ -58,23 +55,6 @@
                 <br />
                 
                 
-                	<label for="rubrique_name"> Look Up <span class="requis">* </span> </label>
-							
-							 <select name="rubriqueLook" > 
-							 
-							 
-						<c:forEach var="rubriqueLook" items="${lookRubrique}">
-									
-									<option> <c:out value="${rubriqueLook}"/> </option>
-									
-									
-							</c:forEach>
-					</select>
-
-	
-	
-	
-	
 	
 		
 			<label for="rubrique_name"> Rubrique de l'Article <span class="requis">* </span> </label>
@@ -88,6 +68,20 @@
 									
 									
 							</c:forEach>
+					</select>
+					
+					
+									<label for="rubrique_name"> Secteurs <span class="requis">* </span> </label>
+							
+		         <select name="secteurName"> 
+					
+					<c:forEach var="secteurVal" items="${Secteurs.values() }">
+					<option> <c:out value="${secteur}"/> </option>
+					
+					
+							
+					</c:forEach>
+					
 					</select>
 	
 					
@@ -105,18 +99,7 @@
 					
 					</select>
 					
-								<label for="rubrique_name"> Secteurs <span class="requis">* </span> </label>
-							
-		         <select name="acronymeTheme"> 
-					
-					<c:forEach var="secteur" items="${modelAll.secteurs }">
-					<option> <c:out value="${secteur}"/> </option>
-					
-					
-							
-					</c:forEach>
-					
-					</select>
+				
 					
 					
 			

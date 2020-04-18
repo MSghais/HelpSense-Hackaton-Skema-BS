@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <div id="wrapper">
-	<title> Good POEI ! </title>
+	<title> Help Sense ! </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assetsPhantom/css/main.css" />
@@ -18,7 +18,7 @@
 
 							<!-- Logo -->
 								<a href="Shopping" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title"> GoodCESI</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title"> Help Sense</span>
 								</a>
 
 							<!-- Nav -->
@@ -64,33 +64,30 @@
 							  
 									<ul >
 									
-										<li> <a  href="addArticleMVC"> Déposer une News</a> </li> 
+										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li> 
 									
 											
 											
-										<li> <a  href="mesCommandes"> Mes Feeds </a> </li> 
+										<li> <a  href="mesCommandes"> Mes échanges </a> </li> 
 										
-										
-										<li> <a  href="mesVentes"> Mes News </a> </li> 
+									
 												
 										
-										<li> <a href="mesAchats"> Mes Follows </a> </li> 
-																						
-										<li>
-										
-										 ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
-										
-									
-										<a href="gererCategories"> Creer une Categorie</a>
-										<select name="acronymeThemeHeader" value="exploration" > 
+										<li> <a href="choixContenu"> Explorer par Feeds </a>
+											<select name="rubriqueName"  > 
 														
-														<c:forEach var="theme" items="${modelTheme.themes }">
-														<option> <c:out value="${theme.theme_intitule}"/> </option>
+														<c:forEach var="rubrique" items="${rubriquesList }">
+														<option> <c:out value="${rubrique}"/> </option>
 														
 														</c:forEach>
 					
 														</select>
-										</li> 
+														
+														</li>											
+										
+										
+									
+									
 										
 										
 										
@@ -121,12 +118,52 @@
 							</c:if>
 							
  	
+ 	
+ 						  
+                 		<c:if test="${!empty sessionScope.utilisateur}">
+                    
+                   
+										<ol>
+										
+										
+											<li value="DashBoard"> 
+										
+										 ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
+										
+											
+										<li> <a  href="mesVentes"> Mes Analyses </a> </li> 
+									
+										<li> <a href="gererCategories"> Creer une Categorie</a>
+										<select name="acronymeThemeHeader"  > 
+														
+														<c:forEach var="theme" items="${modelTheme.themes }">
+														<option> <c:out value="${theme.theme_intitule}"/> </option>
+														
+														</c:forEach>
+					
+														</select>
+														
+														</li>
+														
+										<li> <a href="mesAchats"> Mes Follows </a> </li> 
+										
+										
+										
+										
+										</ol>
+										
+										
+										
+                    		</c:if>
+ 	
                    	
                    	 </ul>
                     
                     
                     
-                </nav>
+                    
+                  </nav>
+                
 				<!-- Menu -->
 					<nav id="menu">
 						<h2>Menu</h2>

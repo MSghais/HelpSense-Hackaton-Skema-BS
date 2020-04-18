@@ -23,12 +23,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
-import contenu.enume.Categories;
+import contenu.enume.Pays;
 import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.enume.StatutArticle;
 import interaction.entite.Commentaire;
-import interaction.entite.Dislike;
-import interaction.entite.Like;
+
 import utilisateurs.entite.User;
 
 
@@ -55,7 +55,13 @@ public class Article {
 	
 	
 	@OneToMany
+	 @JoinTable(name="article_hashtag", joinColumns=@JoinColumn(name="article_id"),
+	inverseJoinColumns=@JoinColumn(name="hashtag_intitule") ) 
+	private List<Hashtag> hashtags;
+	 
 	
+	
+	@OneToMany
 	 @JoinTable(name="article_commentaires", joinColumns=@JoinColumn(name="article_id"),
 	inverseJoinColumns=@JoinColumn(name="commentaire_id") ) 
 	private List<Commentaire> articleCommentaires;
@@ -67,10 +73,12 @@ public class Article {
 	
 	protected StatutArticle status;
 	
-
-	protected Categories categorie;
 	
 	protected Rubriques rubrique;
+	
+	protected Pays pays;
+	
+	protected Secteur secteur;
 	
 	/*
 	 * @OneToOne(optional = true) private Dislike dislike;
@@ -91,6 +99,9 @@ public class Article {
 	 * public void setLike(Like like) { this.like = like; }
 	 */
 	
+	
+	
+	
 	public Article() { 
 	
 		}
@@ -99,6 +110,60 @@ public class Article {
 
 	
 	
+
+	public List<Hashtag> getHashtags() {
+		return hashtags;
+	}
+
+
+
+
+
+
+	public void setHashtags(List<Hashtag> hashtags) {
+		this.hashtags = hashtags;
+	}
+
+
+
+
+
+
+	public Secteur getSecteur() {
+		return secteur;
+	}
+
+
+
+
+
+
+	public void setSecteur(Secteur secteur) {
+		this.secteur = secteur;
+	}
+
+
+
+
+
+
+	public Pays getPays() {
+		return pays;
+	}
+
+
+
+
+
+
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+
+
+
+
+
 
 	public Article(String art_titre, String art_url, String art_description, String art_contenu
 			) {
@@ -200,17 +265,6 @@ public Article(String nom, Theme theme, String description) {
 		this.articleCommentaires = articleCommentaires;
 	}
 
-
-	public Categories getCategorie() {
-		return categorie;
-	}
-
-
-
-
-	public void setCategorie(Categories categorie) {
-		this.categorie = categorie;
-	}
 
 
 

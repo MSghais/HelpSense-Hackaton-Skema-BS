@@ -21,10 +21,12 @@
 		
 		
 		
-				<h4> Titre de l'Article : <c:out value="${ modelArticle.article.titre}"/> </h4>
+				
 				
 				
 	<article class="forecast">
+	
+	<h4> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h4>
 				  	
 						<span class="image">
 					<img src="Images-project/book_savoir.jpg" alt="" />
@@ -41,30 +43,41 @@
 				
 						
 						<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.theme}"/>				
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
 			  	  	</article>
+			  	  	
+			  	  			<article class="day-forecast">
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
+			  	  	</article>
+						
+			  	  		
+			  	  		
+						<article class="day-forecast">
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  	  	</article>
+						
 						
 					
 						
 						
 						<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.description}"/>				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
 			  	  	</article>
 						
 									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.contenu}"/>				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
 			  	  	</article>
 						
 									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.description}"/>				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
 			  	  	</article>
 						
 									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.frais}"/>				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.frais}"/>				
 			  	  	</article>
 						
 									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${article.prix}"/>				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>				
 			  	  	</article>
 						
 							
@@ -82,61 +95,7 @@
 	
 			
 		
-		<div>
-		
-		
-		
-				<h4> <c:out value="${ modelArticle.article.titre}"/> </h4>
-				
-				
-	<article class="forecast">
-				  	<c:forEach var="article" items="${modelVoir.article}"> 
 	
-
-	
-
-						<span class="image">
-					<img src="Images-project/book_savoir.jpg" alt="" />
-				</span>
-			
-							
-			  	
-			  	  	
-					<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>
-								
-					
-							
-						<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>
-					
-								
-					<label> Titre  </label>   	<c:out value="${modelVoir.article.theme}"/>
-							
-						<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>
-								
-							
-					<label> Titre  </label>   > <c:out value="${modelVoir.article.contenu}"/>
-								
-								
-							
-					<label> Titre  </label>   	<c:out value="${modelVoir.article.frais}"/>
-								
-							
-					<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>
-					
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
- 		
-	
-				
-					
-		      </c:forEach>
-			  	
-									
-								</article>
-		
-		
-		</div>
 		
 		
 		
