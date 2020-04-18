@@ -5,42 +5,35 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public enum Rubriques {
+public enum Pays {
 	
-	/*
-	 * PROD("https://prod.domain.com:1088/"), SIT("https://sit.domain.com:2019/"),
-	 * CIT("https://cit.domain.com:8080/"), DEV("https://dev.domain.com:21323/");
-	 */
+
 	
-	
-	    MATH("Mathématiques"), 
-	   INF("Informatique"), 
-	    CHI("Chimie"), 
-	   BIO("Biologie"),
-		  PHY("Physique"),
+	    FR("France"), 
+	   LON("Angleterre"), 
+	    USA("Etats-Unis"), 
+	   CHI("Chine"),
+		  ITA("Italie"),
 		  
-		  ECO("Economie"),
-		  MANA("Management"),
-		  LAW("Droit"),
-		 GEO("Géopolitique"),
-		  
-		  PSY("Psychologie"),
-		  SOC("Sociologie"),
-		  COACH("Developpement Personnel");
+		  RUS("Russie"),
+		  MEX("Mexique");
+
 	 
-	    private final String rubrique;
-	 
-	    Rubriques(String rubrique ) {
-	        this.rubrique = rubrique;
+		private final String capital;
+	
+	    Pays (String capital ) {
+	        this.capital = capital;
 	    }
 	 
-	    public String getRubrique() {
-	        return rubrique;
+	   
+
+		public String getRubrique() {
+	        return capital;
 	    }
 
-	    public static Rubriques valueOfLabel(String label) {
-	        for (Rubriques r : values()) {
-	            if (r.rubrique.equals(label)) {
+	    public static Pays valueOfLabel(String label) {
+	        for (Pays r : values()) {
+	            if (r.capital.equals(label)) {
 	                return r;
 	            }
 	        }
@@ -48,13 +41,13 @@ public enum Rubriques {
 	    }
 	    
 	    //Lookup table
-	    private static final Map<Rubriques,String> lookup = new HashMap<>();
+	    private static final Map<Pays,String> lookup = new HashMap<>();
 	    
-	    private static final List<Rubriques> stringVal= new ArrayList<>();
+	    private static final List<Pays> stringVal= new ArrayList<>();
 	    
-	    public static Map<Rubriques,String> setLookUpKeyValues() {
+	    public static Map<Pays,String> setLookUpKeyValues() {
 	    	
-	    	for(Rubriques rub : Rubriques.values()) {
+	    	for(Pays rub : Pays.values()) {
 	    		
 	    		lookup.put(rub, rub.getRubrique());
 	    		
@@ -63,10 +56,10 @@ public enum Rubriques {
 	    	return lookup;
 	    }
 	    
-	    public static List<Rubriques> setStringValues() {
+	    public static List<Pays> setStringValues() {
 	    	
 	    	
-	    	for(Rubriques rub : Rubriques.values()) {
+	    	for(Pays rub : Pays.values()) {
 	    		
 	    		stringVal.add(rub);
 	    		
@@ -94,7 +87,7 @@ public enum Rubriques {
 	    public static Map<String, String> getAllValueString() {
 	    	
 	    	Map<String, String> allMap = new HashMap<>();
-	    for(Rubriques rub : Rubriques.values())
+	    for(Pays rub : Pays.values())
 	    {
 	    	allMap.put(rub.name(), rub.getRubrique());
 	        System.out.println(rub.name() + " :: "+ rub.getRubrique());
@@ -106,11 +99,11 @@ public enum Rubriques {
 	    
 	    
 	    
-    public static List<Rubriques> getAllValuesRubrique() {
+    public static List<Pays> getAllValuesRubrique() {
 	    	
-	    	List<Rubriques> allMap = null;
+	    	List<Pays> allMap = null;
 	    	String values = null;
-	    for(Rubriques rub : Rubriques.values())
+	    for(Pays rub : Pays.values())
 	    {
 	 
 	    	allMap.add(rub);
@@ -124,7 +117,7 @@ public enum Rubriques {
 	public static List<String> getAllStringValList() {
 		
 		List<String> rubriqueList = null;
-		for(Rubriques rub : Rubriques.values() ) {
+		for(Pays rub : Pays.values() ) {
 		 	String rubGetter = rub.getRubrique();
 		 	
 		 	
@@ -136,10 +129,10 @@ public enum Rubriques {
 		
 	}
 		
-	public static Rubriques[] getAllStringVal() {
+	public static Pays[] getAllStringVal() {
 		
-		Rubriques[] rubriqueList = null;
-		for(Rubriques rub : Rubriques.values() ) {
+		Pays[] rubriqueList = null;
+		for(Pays rub : Pays.values() ) {
 		 	String rubGetter = rub.getRubrique();
 		 	
 		 	//rub.get(url);
@@ -151,7 +144,7 @@ public enum Rubriques {
 		return rubriqueList;
 	}
 
-	public static Map<Rubriques, String> getLookup() {
+	public static Map<Pays, String> getLookup() {
 		return lookup;
 	}    
 	

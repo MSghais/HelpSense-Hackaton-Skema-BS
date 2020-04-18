@@ -72,29 +72,30 @@ public class GererCategories extends HttpServlet {
 	    	User userConnecter = (User)session.getAttribute(ATTRIBUT_USER);
 	    	System.out.println("User connecter");
 	    	
-	    	if( userConnecter.getRole() == Role.Administrateur) {
-	    		
-	    		ModelAllContent modelTheme = new ModelAllContent();
-	    		List<Theme> themes = metierTheme.lireTousTheme();
-	    		modelTheme.setThemes(themes);
-	    		
-	    		request.setAttribute("modelTheme", modelTheme);
-		  
-		     	User user =  (User) request.getAttribute(ATTRIBUT_USER);   
-		     	System.out.println("user in session are " + user);
-		     	
-
-	
-		    	request.getRequestDispatcher(VUE).include(request, response);
-		    	System.out.println("doPOST envoi la vue");
-		     	//HttpSession sessionServlet = request.getSession();
-		     	Cookie[] cookies = request.getCookies(); System.out.println(cookies);
-	    			
-	    	}
-	    	else {
-	    	
-	    		request.getRequestDispatcher("Shopping").forward(request, response);
-	    	}
+	    	request.getRequestDispatcher(VUE).forward(request, response);
+			  
+		/*
+		 * if( userConnecter.getRole() == Role.Administrateur) {
+		 * 
+		 * ModelAllContent modelTheme = new ModelAllContent(); List<Theme> themes =
+		 * metierTheme.lireTousTheme(); modelTheme.setThemes(themes);
+		 * 
+		 * request.setAttribute("modelTheme", modelTheme);
+		 * 
+		 * User user = (User) request.getAttribute(ATTRIBUT_USER);
+		 * System.out.println("user in session are " + user);
+		 * 
+		 * 
+		 * 
+		 * request.getRequestDispatcher(VUE).include(request, response);
+		 * System.out.println("doPOST envoi la vue"); //HttpSession sessionServlet =
+		 * request.getSession(); Cookie[] cookies = request.getCookies();
+		 * System.out.println(cookies);
+		 * 
+		 * } else {
+		 * 
+		 * request.getRequestDispatcher("Shopping").forward(request, response); }
+		 */
 	    	
 
 		 	   if(request.getParameter("creationCategorie") != null ) {

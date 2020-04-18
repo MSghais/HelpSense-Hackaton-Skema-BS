@@ -7,6 +7,7 @@ import java.util.Map;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
 import contenu.enume.Rubriques;
 import contenu.enume.Secteur;
 import interaction.entite.Commande;
@@ -30,6 +31,7 @@ public class ModelAllContent {
 	
 	private Rubriques []  rubriquesAll;
 	private Secteur [] secteurAll;
+	private Pays [] paysVal;
 
 	
 	public ModelAllContent() {
@@ -64,6 +66,14 @@ public class ModelAllContent {
 		this.usersLectures = usersLectures;
 	}
 
+
+	public Pays[] getPaysVal() {
+		return paysVal;
+	}
+
+	public void setPaysVal(Pays[] paysVal) {
+		this.paysVal = paysVal;
+	}
 
 	public Rubriques[] getRubriquesAll() {
 		return rubriquesAll;

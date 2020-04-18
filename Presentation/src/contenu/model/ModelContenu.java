@@ -17,6 +17,7 @@ public class ModelContenu {
 
 	private List<User> usersLectures;
 	
+	private Article article;
 
 	private Map<Long,Article> articlesMap;
 	
@@ -56,6 +57,7 @@ public class ModelContenu {
 		this.articles = articles;
 	}
 
+	
 
 
 	public List<User> getUsersLectures() {
@@ -85,6 +87,14 @@ public class ModelContenu {
 		
 		articlesMap.put(user.getUser_id(), article);
 	
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 	
 

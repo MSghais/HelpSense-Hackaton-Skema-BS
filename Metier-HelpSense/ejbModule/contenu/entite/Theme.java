@@ -19,7 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Theme {
 
 
-	@Id @GeneratedValue
+	@Id
 	@Column(name="theme_intitule")
 	private String intitule;
 

@@ -16,6 +16,196 @@
 	
 	
 	
+	
+		<div>
+		
+		
+		
+				<h4> Titre de l'Article : <c:out value="${ modelArticle.article.titre}"/> </h4>
+				
+				
+	<article class="forecast">
+				  	
+						<span class="image">
+					<img src="Images-project/book_savoir.jpg" alt="" />
+				</span>
+			
+							
+			  	
+			  	  	<article class="day-forecast">
+			  	  			<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>			
+			  	  	</article>
+
+								
+					
+				
+						
+						<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.theme}"/>				
+			  	  	</article>
+						
+					
+						
+						
+						<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.description}"/>				
+			  	  	</article>
+						
+									<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.contenu}"/>				
+			  	  	</article>
+						
+									<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.description}"/>				
+			  	  	</article>
+						
+									<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.frais}"/>				
+			  	  	</article>
+						
+									<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${article.prix}"/>				
+			  	  	</article>
+						
+							
+				
+					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
+					 
+
+			  	
+									
+								</article>
+		
+		
+		</div>
+		
+	
+			
+		
+		<div>
+		
+		
+		
+				<h4> <c:out value="${ modelArticle.article.titre}"/> </h4>
+				
+				
+	<article class="forecast">
+				  	<c:forEach var="article" items="${modelVoir.article}"> 
+	
+
+	
+
+						<span class="image">
+					<img src="Images-project/book_savoir.jpg" alt="" />
+				</span>
+			
+							
+			  	
+			  	  	
+					<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>
+								
+					
+							
+						<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>
+					
+								
+					<label> Titre  </label>   	<c:out value="${modelVoir.article.theme}"/>
+							
+						<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>
+								
+							
+					<label> Titre  </label>   > <c:out value="${modelVoir.article.contenu}"/>
+								
+								
+							
+					<label> Titre  </label>   	<c:out value="${modelVoir.article.frais}"/>
+								
+							
+					<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>
+					
+				
+					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
+					 
+ 		
+	
+				
+					
+		      </c:forEach>
+			  	
+									
+								</article>
+		
+		
+		</div>
+		
+		
+		
+	<h4>Tableau des Articles </h4>
+	<div class="table-wrapper">
+										<table class="alt">
+		
+		<thead> <th> Titre </th><th> Description </th> <th> Contenu </th> <th> Frais </th>   <th> Prix </th>    <th> Achat </th> </thead>
+			  
+			  	<tbody>
+			  	
+			  	
+				<tr>
+				
+					<td><c:out value="${ modelVoir.article.titre}"/></td>
+					
+					<td><c:out value="${modelVoir.article.description}"/></td>
+					
+					<td><c:out value="${modelVoir.article.contenu}"/></td>
+					
+					
+					<td><c:out value="${modelVoir.article.frais}"/></td>
+					
+					<td><c:out value="${modelVoir.article.prix}"/></td>
+				
+				</tr> 
+		     
+		      
+		      </tbody>
+		      
+		</table>
+		
+		</div>
+		
+		
+		<h4> <c:out value="${ modelVoir.article.titre}"/> </h4>
+	<div class="table-wrapper">
+										<table class="alt">
+		
+		<thead> <th> Titre </th><th> Description </th> <th> Contenu </th> <th> Frais </th>   <th> Prix </th>    <th> Achat </th> </thead>
+			  
+			  	<tbody>
+			  	
+			  	
+				<tr>
+				
+					<td><c:out value="${ modelVoir.article.titre}"/></td>
+					
+					<td><c:out value="${modelVoir.article.description}"/></td>
+					
+					<td><c:out value="${modelVoir.article.contenu}"/></td>
+					
+					
+					<td><c:out value="${modelVoir.article.frais}"/></td>
+					
+					<td><c:out value="${modelVoir.article.prix}"/></td>
+				
+				</tr> 
+		     
+		      
+		      </tbody>
+		      
+		</table>
+		
+		</div>
+		
+		
+		
+	
         <div id="bloc_page">
             
             	<div id="main">
@@ -32,208 +222,13 @@
 					
 					
 			<div> 
-			
 		
-		<h4>Tableau des Articles </h4>
-	
-		<table border="1">
-			<th>NOM</th><th>PRENOM</th>
-			  <c:forEach var="article" items="${model.articles}"> 
-				<tr>
-				
-				<td><c:out value="${ article.id}"/></td>
-				
-					<td><c:out value="${ article.nom}"/></td>
-					
-						<td><c:out value="${ article.themeString}"/></td>
-					<td><c:out value="${article.description}"/></td>
-					
-					<td><c:out value="${article.contenu}"/></td>
-				</tr> 
-		      </c:forEach>
-		      
-		</table>
-		
-		
-		
-		<td> Choissisez un Theme :</td>
-					<td>
-					
-					 <select name="acronymeTheme"> 
-					
-					<c:forEach var="theme" items="${model.themes }">
-					<option> <c:out value="${theme.nameRubrique}"/> </option>
-					
-					<option> <c:out value="${theme.description}"/> </option>
-						
-							<c:forEach var="themeSub" items="${model.themes}">
-							
-							<option> <c:out value="${themeSub.sousRubriques}"/> </option>
-							
-							
-							</c:forEach>
-							
-							
-					</c:forEach>
-					
-					</select>
-				
-				
-			<h4>Tableau des Articles par theme </h4>
-	
-		<table border="1">
-			<th>NOM</th><th>PRENOM</th>
-			  <c:forEach var="article" items="${model.articles}"> 
-				<tr>
-				
-				<td><c:out value="${ article.id}"/></td>
-				
-					<td><c:out value="${ article.nom}"/></td>
-					
-						<td><c:out value="${ article.themeString}"/></td>
-					<td><c:out value="${article.description}"/></td>
-					
-					<td><c:out value="${article.contenu}"/></td>
-				</tr> 
-		      </c:forEach>
-		      
-		</table>
-	
-		<h4>Ajouter une promotion</h4>
-		<form action="createArticle" method="post" name=formInscription>
-			<table>
-				<tr>
-					<td> Nom </td>
-					<td><input type="text" name="username"></td>
-				</tr>
-				<tr>
-					<td> Theme </td>
-					<td><input type="text" name="login"></td>
-				</tr>
-				
-				<tr>
-					<td> Email :</td>
-					<td><input type="text" name="email"></td>
-				</tr>
-				
-				<tr>
-					<td>  Mot de Passe:</td>
-					<td><input type="text" name="password1"></td>
-				</tr>
-				
-				<tr>
-					<td>  Same MDP:</td>
-					<td><input type="text" name="password2" value="Retapez votre mot de passe"></td>
-				</tr>
-				
-				
-				<tr>
-					<td></td>
-					<td><input type="submit" value="S'inscrire" name="creationUser"></td>
-				</tr>
-				
-				
-				
-			</table>
-		</form>	
-		<br/>
-		
-		
-		<div> 
-		<section>   
-		
-		 <h4> Article </h4>
-		<form action="creationArticle" method="post" >
-		<fieldset>
-
-				
-                <label for="username">Nom d'utilisateur <span class="requis">* </span> </label>
-                <input type="text" id="username" name="username" value="<c:out value="${utilisateur.username}"/>" size="20" maxlength="60" />
-                <span class="erreur">${form.erreurs['username']}</span>
-                <br />
-                
-                 <label for="login"> Login de connexion <span class="requis">*</span> </label>
-                <input type="text" id="login" name="login" value="<c:out value="${utilisateur.login}"/>" size="20" maxlength="20" />
-                 <span class="erreur">${form.erreurs['login']}</span>
-                <br />
-                
-                
-				       <label for="email">Adresse email <span class="requis">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${utilisateur.email}"/>" size="20" maxlength="60" />
-                <span class="erreur">${form.erreurs['email']}</span>
-                
-                
-                
-                <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
-                 <span class="erreur">${form.erreurs['password']}</span>
-                <br />
-
-                <label for="confirmation">Confirmation du mot de passe <span class="requis">*</span></label>
-                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
-                <span class="erreur">${form.erreurs['confirmation']}</span>
-                <br />
-
-
-                <input type="submit" value="S'incrire"  name="inscriptionUserMVC"  />
-                <br />
-                
-                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
-					
-			</fieldset>
-		</form>	
-		<br/>
-		
-		</section>
-		
-		</div>
-		<a href="/WEB-INF/JSP/vueConnection.jsp"> Se connecter </a>
-		
-		
-
-				<tr>
-					<td>Choisir la formation : </td>
-					<td><select name="promotion">
-		    			<c:forEach var="promotion" items="${model.promotions}"> 
-				    		<option value="${promotion.acronyme}"><c:out value="${promotion.acronyme}"/></option>
-					    </c:forEach>
-				    </select></td>
-				<tr>
-					<td>Nom : </td>
-					<td><input type="text" name="nom"></td>
-				</tr>
-				<tr>
-					<td>Prénom : </td>
-					<td><input type="text" name="prenom"></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Ajouter" name="creerEtudiant"></td>
-				</tr>
-			</table>
-		</form>	
-		<br/>
-		<h4>Tableau des Etudiants</h4>
-		<table border="1">
-			<th> ID </th>  <th>NOM </th> <th>PRENOM</th> <th> Retard </th> <th>Absence </th>
-			  <c:forEach var="etudiant" items="${model.etudiants}"> 
-				<tr>
-					<td><c:out value="${etudiant.id}"/></td>   
-					<td><c:out value="${etudiant.nom}"/></td>
-					<td><c:out value="${etudiant.prenom}"/></td>
-					<td><c:out value="${etudiant.retard}"/></td>
-					<td><c:out value="${etudiant.absence}"/></td> 
-					
-					<td> <a href="etudiants?retard=${etudiant.id}" > Retard </a> </td> 
-					<td> <a href="etudiants?absent=${etudiant.id}" > Absent </a> </td> 
-					
-				</tr> 
-		      </c:forEach>
-		   
-		</table>
 
 		
 		</div>
+		
+		
+		
 	</body>
 			<%@ include file="/WEB-INF/footerPhantom.jsp" %>
 	

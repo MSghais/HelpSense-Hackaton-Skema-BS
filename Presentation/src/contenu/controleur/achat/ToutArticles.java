@@ -4,7 +4,9 @@ package contenu.controleur.achat;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.metier.theme.MetierInterfaceTheme;
 import contenu.model.ModelAllContent;
@@ -85,6 +89,21 @@ public class ToutArticles extends HttpServlet {
 		System.out.println("User session Tout Article = " + userSession);
 		
 		
+	 	Map<Rubriques, String> lookUp = Rubriques.setLookUpKeyValues();
+    	System.out.println(lookUp);
+		request.setAttribute("lookRubrique", lookUp);  	
+    	Collection<String> rubriquesList = lookUp.values();
+    	System.out.println(rubriquesList);   
+    	request.setAttribute("rubriquesListe", rubriquesList);	
+    	
+    	
+    	Map<Pays, String> pays = Pays.setLookUpKeyValues();
+    	System.out.println(pays);
+    	Collection<String> paysListe = pays.values();
+    	System.out.println(paysListe) ;
+    	request.setAttribute("paysListe", paysListe);	
+    	
+    	
 		ModelUser modelUser = new ModelUser(); 
 		ModelContenu modelContenu = new ModelContenu(); 
 		
@@ -111,6 +130,55 @@ public class ToutArticles extends HttpServlet {
 			
 				
 				}
+			
+			
+			if(request.getParameter("choixRubrique") != null ) {
+				System.out.println("condition select theme");
+				
+				
+			
+		    	
+		    	
+				String theme_id = String.valueOf(request.getParameter("acronymeTheme"));
+				
+				
+				System.out.println("theme =" + theme_id);
+				
+				ModelContenu modelContenuSelect = new ModelContenu(); 
+				
+				System.out.println("select Article By Theme");
+				
+				List<Article> articlesThemes = metierArticle.selectArticleByTheme(theme_id);
+				modelContenuSelect.setArticles(articlesThemes);
+				request.setAttribute("modelContenuSelect", modelContenuSelect);
+			
+				
+				}
+			
+			
+			if(request.getParameter("choixPays") != null ) {
+				System.out.println("condition select theme");
+				
+				
+			
+		    	
+		    	
+				String theme_id = String.valueOf(request.getParameter("acronymeTheme"));
+				
+				
+				System.out.println("theme =" + theme_id);
+				
+				ModelContenu modelContenuSelect = new ModelContenu(); 
+				
+				System.out.println("select Article By Theme");
+				
+				List<Article> articlesThemes = metierArticle.selectArticleByTheme(theme_id);
+				modelContenuSelect.setArticles(articlesThemes);
+				request.setAttribute("modelContenuSelect", modelContenuSelect);
+			
+				
+				}
+			
 			
 
 			if(request.getParameter("supprimer") != null ) {

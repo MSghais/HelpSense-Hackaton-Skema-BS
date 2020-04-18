@@ -20,9 +20,20 @@
 
 
 			<class>contenu.entite.Theme</class>	
-
+			
+			
+			
 								
 					<class>interaction.entite.Commande</class>	
+
+
+			<class>interaction.entite.Dislike</class>	
+			
+				<class>interaction.entite.Like</class>
+			
+			<class>interaction.entite.Commentaire</class>	
+			
+		
 			
 				<class>interaction.entite.Banque</class>	
 			
@@ -36,11 +47,10 @@
 					
 	
 					 
-				  <property name="javax.persistence.schema-generation.database.action" value="none"/>	
-		
-					 	
 	
 	<
+<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+	
 		
 		
 		
@@ -49,9 +59,11 @@
 				  -->	
 				  
 				   
+				   
+				  <property name="javax.persistence.schema-generation.database.action" value="none"/>	
 		
-<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-	
+					 	
+		
 				  
 	
 		</properties>  

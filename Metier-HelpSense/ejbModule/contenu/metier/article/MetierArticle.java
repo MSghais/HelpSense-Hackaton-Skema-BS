@@ -134,13 +134,20 @@ public class MetierArticle implements MetierInterfaceArticle {
 		String art_contenu = request.getParameter("art_contenu");
 		String art_frais = request.getParameter("art_frais");
 		String art_prix = request.getParameter("art_prix");
-		String acronymeTheme = request.getParameter("acronymeTheme");
-		System.out.println(acronymeTheme);
+		
 
 		Article article = new Article();
 
-		Theme theme = persistanceTheme.lireThemeName(acronymeTheme);
-		System.out.println(theme);
+		if(request.getParameter("acroynymeTheme") != null) {
+			
+			String acronymeTheme = request.getParameter("acronymeTheme");
+			System.out.println(acronymeTheme);
+			Theme theme = persistanceTheme.lireThemeName(acronymeTheme);
+			System.out.println(theme);
+			article.setTheme(theme);
+			
+		}
+
 		
 		System.out.println("Test des exceptions du formulaire a partir du MEtier");
 		System.out.println("Test  metier : titre ");
@@ -193,7 +200,6 @@ public class MetierArticle implements MetierInterfaceArticle {
 		
 		article.setStatus(StatutArticle.DISPONIBLE);
 		
-		article.setTheme(theme);
 		
 		article.setDate(new Date());
 		
@@ -215,10 +221,6 @@ public class MetierArticle implements MetierInterfaceArticle {
 			persistanceArticle.persisterArticle(article);
 
 		
-			
-			System.out.println("updateArticle");
-			
-			
 			
 			System.out.println("Persister Article OK ");
 			return article;

@@ -3,7 +3,6 @@ package interaction.entite;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,79 +16,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.PersistenceContext;
 
 import contenu.entite.Article;
-
+import contenu.entite.Skills;
 import utilisateurs.entite.User;
 
 @Entity
-public class Commentaire {
+public class Like {
 	
+	@Id
+	private Long id;
 	
-
-	@Id 
-	private String contenu;
-	
-
-	/*
-	 * private Long like; private Long dislike;
-	 */
-	/*
-	 * @OneToOne private Like like;
-	 * 
-	 * //@OneToMany(mappedBy = "dislike")
-	 * 
-	 * @OneToOne private Dislike dislike;
-	 */
+	private Long number;
 	
 	private Date date;
-	
-	@OneToOne(optional = false)
-	@JoinColumn(name="user_id")
-	private User user;
-	
-	
-	
-	/*
-	 * @OneToOne(optional = true) private Dislike dislike;
-	 * 
-	 * @OneToOne(optional = true) private Like like;
-	 * 
-	 * public Dislike getDislike() { return dislike; }
-	 * 
-	 * 
-	 * public void setDislike(Dislike dislike) { this.dislike = dislike; }
-	 * 
-	 * 
-	 * public Like getLike() { return like; }
-	 * 
-	 * 
-	 * public void setLike(Like like) { this.like = like; }
-	 */
 
-	
 	/*
+	 * @OneToOne(optional = false)
+	 * 
+	 * @JoinColumn(name="user_id") private User user;
+	 * 
+	 * 
 	 * @OneToOne(optional = false)
 	 * 
 	 * @JoinColumn(name="article_id") private Article article;
 	 */
 	
-	public Commentaire(String contenu) {
-		super();
-		this.contenu = contenu;
-		//this.like=0L;
-		//this.dislike=0L;
-	}
-
-
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinTable(name="article_commentaire",
-	 * joinColumns=@JoinColumn(name="commentaire_id"),
-	 * inverseJoinColumns=@JoinColumn(name="article_id") ) private List<Article >
-	 * commentairesArticle;
-	 * 
-	 */
-	//private Long likes;
 	
 	/*
 	 * @ManyToMany
@@ -139,48 +89,9 @@ public class Commentaire {
 	*/
 
 
-	
-
-	public Commentaire(Long comment_id, String comment_intitule, String comment_contenu, String url_image,
-			String url_video, Long like) {
-		super();
-
-		this.contenu = comment_contenu;
-		
-		
-		
-		this.date = new Date();
-	}
-
-
-	public Commentaire() {
+	public Like() {
 		// TODO Auto-generated constructor stub
 	}
-
-
-	
-	public String getContenu() {
-		return contenu;
-	}
-
-	public void setContenu(String contenu) {
-		this.contenu = contenu;
-	}
-
-
-	
-
-	public User getUser() {
-		return user;
-	}
-
-	
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	
 
 	public Date getDate() {
 		return date;
@@ -190,23 +101,25 @@ public class Commentaire {
 		this.date = date;
 	}
 
-	/*
-	 * 
-	 * public void ajouterLike() {
-	 * 
-	 * this.like = like++; } public void ajouterDisike() {
-	 * 
-	 * this.dislike = dislike++; } public Long getLike() { return like; }
-	 * 
-	 * 
-	 * public void setLike(Long like) { this.like = like; }
-	 * 
-	 * 
-	 * public Long getDislike() { return dislike; }
-	 * 
-	 * 
-	 * public void setDislike(Long dislike) { this.dislike = dislike; }
-	 */
+	public Long getNumber() {
+		return number;
+	}
+
+	public void setNumber(Long number) {
+		this.number = number;
+	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	
 	
 
 	

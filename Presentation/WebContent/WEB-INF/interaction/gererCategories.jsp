@@ -53,7 +53,7 @@
 					<c:forEach var="theme" items="${modelTheme.themes }">
 					
 					<tr>
-					<td> <c:out value="${theme.theme_intitule}"/>
+					<td> <c:out value="${theme.intitule}"/>
 					</td>
 					</tr>
 				

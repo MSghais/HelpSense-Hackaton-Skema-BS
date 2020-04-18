@@ -33,25 +33,6 @@
 						</c:if>  
 	        		
 				
-				
-				
-			
-					
-								<label for="paysVal"> Actu Nationale ?<span class="requis">* </span> </label>
-							
-		         <select name="paysVal"> 
-					
-					<c:forEach var="pays" items="${paysListe }">
-					<option> <c:out value="${pays}"/> </option>
-					
-					
-							
-					</c:forEach>
-					
-					</select>
-					
-					
-					
                 <label for="art_titre"> Titre <span class="requis">* </span> </label>
                 <input type="text" id="art_titre" name=art_titre value="<c:out value="${article.titre}"/>" size="20" maxlength="60" />
                 <span class="erreur">${form.erreurs['art_titre']}</span>
@@ -75,14 +56,43 @@
 	
 	
 	
-	
-		
-			<label for="rubrique_name"> Rubrique de l'Article <span class="requis">* </span> </label>
+				
+			<label for="rubrique_name"> Liste de Rubriques <span class="requis">* </span> </label>
+							
+							 <select name="rubrique" > 
+							 
+							 
+						<c:forEach var="rubriqueVal" items="${rubriques}">
+									
+									<option> <c:out value="${rubriqueVal}"/> </option>
+									
+									
+							</c:forEach>
+					</select>
+					
+					
+				
+			<label for="rubrique_name"> Request Rubrique <span class="requis">* </span> </label>
 							
 							 <select name="rubriqueName" > 
 							 
 							 
-						<c:forEach var="rubriqueVal" items="${rubriquesListe}">
+						<c:forEach var="rubriqueVal" items="${rubValues}">
+									
+									<option> <c:out value="${rubriqueVal}"/> </option>
+									
+									
+							</c:forEach>
+					</select>
+	
+	
+		
+			<label for="rubrique_name"> RRR <span class="requis">* </span> </label>
+							
+							 <select name="rubriqueName" > 
+							 
+							 
+						<c:forEach var="rubriqueVal" items="${rubriquesList}">
 									
 									<option> <c:out value="${rubriqueVal}"/> </option>
 									
@@ -117,9 +127,6 @@
 					</c:forEach>
 					
 					</select>
-					
-					
-			
 					
              
                  <label for="art_description"> Description <span class="requis">*</span> </label>

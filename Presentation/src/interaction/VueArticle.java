@@ -22,7 +22,7 @@ import utilisateurs.model.ModelUser;
 
 
 
-@WebServlet("/vueArticle")
+@WebServlet("/voirArticle")
 public class VueArticle extends HttpServlet { 
 	
 	
@@ -42,13 +42,31 @@ public class VueArticle extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MyServlet doPost");
-		String urlVue = "WEB-INF/contenu/vueArticle.jsp";
+		String urlVue = "WEB-INF/contenu/vente/vueArticle.jsp";
 		request.getRequestDispatcher(urlVue).forward(request, response); 
 		
-		ModelContenu model = new ModelContenu(); 
+	   ModelContenu modelVoir = new ModelContenu();
+		//ModelContenu model = new ModelContenu(); 
 		
 		   HttpSession sessionServlet = request.getSession();
 		   
+		   
+	   if(request.getParameter("id") != null) {
+		   
+		   Long article_id = Long.valueOf(request.getParameter("id"));
+		   System.out.println("article id"+ article_id);
+		   
+		   Article article = metier.rechercherArticleIndex(article_id);
+		
+		   modelVoir.setArticle(article);
+		   request.setAttribute("modelVoir", modelVoir);
+		   
+		   
+		   if(request.getParameter("commentaire") != null) {
+			   
+		   }
+		   
+	   }
 		   
 		  // if( request.getParameter(arg0) != null )
 		if(request.getParameter("creationArticle") != null){

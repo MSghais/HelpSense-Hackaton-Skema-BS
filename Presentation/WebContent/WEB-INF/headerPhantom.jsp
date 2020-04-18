@@ -76,7 +76,23 @@
 										
 										<li> <a href="mesAchats"> Mes Follows </a> </li> 
 																						
-										<li> ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a> </li> 	
+										<li>
+										
+										 ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
+										
+									
+										<a href="gererCategories"> Creer une Categorie</a>
+										<select name="acronymeThemeHeader" value="exploration" > 
+														
+														<c:forEach var="theme" items="${modelTheme.themes }">
+														<option> <c:out value="${theme.theme_intitule}"/> </option>
+														
+														</c:forEach>
+					
+														</select>
+										</li> 
+										
+										
 										
 										<li> <a  href="Forum"> Forum </a> </li> 
 														

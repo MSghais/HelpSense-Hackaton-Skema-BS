@@ -23,7 +23,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import contenu.enume.Categories;
+import contenu.enume.Rubriques;
 import contenu.enume.StatutArticle;
+import interaction.entite.Commentaire;
+import interaction.entite.Dislike;
+import interaction.entite.Like;
 import utilisateurs.entite.User;
 
 
@@ -47,6 +52,14 @@ public class Article {
 	@OneToOne(optional = true)
 	@JoinColumn(name="vendeur_id")
 	private User vendeur;
+	
+	
+	@OneToMany
+	
+	 @JoinTable(name="article_commentaires", joinColumns=@JoinColumn(name="article_id"),
+	inverseJoinColumns=@JoinColumn(name="commentaire_id") ) 
+	private List<Commentaire> articleCommentaires;
+	 
 
 	/*
 	 * private Long like=0L; private Long dislike=0L;
@@ -54,15 +67,33 @@ public class Article {
 	
 	protected StatutArticle status;
 	
-	public void addUser(User user) {
-		
-		this.setVendeur(user);
-	}
 
+	protected Categories categorie;
 	
-
-
-	public Article() {}
+	protected Rubriques rubrique;
+	
+	/*
+	 * @OneToOne(optional = true) private Dislike dislike;
+	 * 
+	 * @OneToOne(optional = true) private Like like;
+	 * 
+	 * 
+	 * public Dislike getDislike() { return dislike; }
+	 * 
+	 
+	 * 
+	 * public void setDislike(Dislike dislike) { this.dislike = dislike; }
+	 * 
+	 * 
+	 * public Like getLike() { return like; }
+	 * 
+	 * 
+	 * public void setLike(Like like) { this.like = like; }
+	 */
+	
+	public Article() { 
+	
+		}
 
 	
 
@@ -154,6 +185,56 @@ public Article(String nom, Theme theme, String description) {
 		this.vendeur = user_vendeur;
 		this.status = status;
 	}
+
+
+	
+	
+
+
+	public List<Commentaire> getArticleCommentaires() {
+		return articleCommentaires;
+	}
+
+
+	public void setArticleCommentaires(List<Commentaire> articleCommentaires) {
+		this.articleCommentaires = articleCommentaires;
+	}
+
+
+	public Categories getCategorie() {
+		return categorie;
+	}
+
+
+
+
+	public void setCategorie(Categories categorie) {
+		this.categorie = categorie;
+	}
+
+
+
+
+	public Rubriques getRubrique() {
+		return rubrique;
+	}
+
+
+
+
+	public void setRubrique(Rubriques rubrique) {
+		this.rubrique = rubrique;
+	}
+
+
+
+
+	public void addUser(User user) {
+		
+		this.setVendeur(user);
+	}
+
+	
 
 
 

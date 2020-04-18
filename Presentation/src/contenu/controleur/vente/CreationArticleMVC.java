@@ -3,6 +3,7 @@ package contenu.controleur.vente;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,9 @@ import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
 import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.metier.theme.MetierInterfaceTheme;
 import contenu.model.ModelAllContent;
@@ -70,17 +73,42 @@ public class CreationArticleMVC extends HttpServlet {
 	    	
 	    	
 	    	ModelAllContent modelAll = new ModelAllContent();
-	    	 
-	    	Map<Rubriques, String> lookUp = Rubriques.setLookUpValues();
+	    	Map<Rubriques, String> lookUp = Rubriques.setLookUpKeyValues();
 	    	System.out.println(lookUp);
-	    	request.setAttribute("lookRubrique", lookUp);
+	    
+	    	request.setAttribute("lookRubrique", lookUp);  	
+	    	Collection<String> rubriquesList = lookUp.values();
+	    	System.out.println(rubriquesList);   
+	    	request.setAttribute("rubriquesListe", rubriquesList);	
+	    	
+	    	
+	    	Map<Pays, String> pays = Pays.setLookUpKeyValues();
+	    	System.out.println(pays);
+	    	Collection<String> paysListe = pays.values();
+	    	System.out.println(paysListe);
+		    
+	    	request.setAttribute("paysListe", paysListe);	
+	   
+	    	
+	    			
+	    	List<Rubriques> rubriques = Rubriques.setStringValues();
+	    	System.out.println(rubriques);
+	    
+	    	request.setAttribute("rubriques", rubriques);
 	    	
 	    	//String urlVueMVC = "WEB-INF/JSP/ajouterArticle.jsp";
 	       	Rubriques[] rubValues = Rubriques.values();
-	       	Rubriques.getAllStringVal();
-	       	
-	       	rubValues.toString();
+	      	rubValues.toString();
 	    	request.setAttribute("rubValues", rubValues);
+	    	
+	       	Rubriques[]rubAllValues = Rubriques.getAllStringVal();
+	      	rubValues.toString();
+	    	request.setAttribute("rubAllValues", rubAllValues);
+	     
+	    	Secteur[] secteurs = Secteur.values();
+	    	
+	    	 request.setAttribute("secteurs", secteurs);
+			 modelAll.setSecteurAll(secteurs);
 	    	
 	    	 Rubriques[] rubriqueVal = Rubriques.getAllStringVal();
 			 request.setAttribute("rubriqueVal", rubriqueVal);
