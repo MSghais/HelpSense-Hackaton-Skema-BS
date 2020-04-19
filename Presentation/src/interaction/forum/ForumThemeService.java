@@ -1,4 +1,4 @@
-package interaction;
+package interaction.forum;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -29,8 +29,8 @@ import utilisateurs.entite.User;
  * Servlet implementation class MVCInscription
  */
 
-@WebServlet("/Forum")
-public class ForumServiceWeb extends HttpServlet {
+@WebServlet("/fieldTchat")
+public class ForumThemeService extends HttpServlet {
 	
 	
 	@EJB
@@ -48,7 +48,7 @@ public class ForumServiceWeb extends HttpServlet {
 		public static final String ATTRIBUT_USER_ROLE      = "userRole";
 		
 	    public static final String ATTRIBUT_ERREUR_MSG   = "msgErreur";
-	    public static final String VUE = "WEB-INF/interaction/webSocket.jsp";
+	    public static final String VUE_FORUM_THEME = "WEB-INF/interaction/forum/webSocketRubrique.jsp";
 			
 		private String erreurMsg;
 		
@@ -72,7 +72,7 @@ public class ForumServiceWeb extends HttpServlet {
 	    	User userConnecter = (User)session.getAttribute(ATTRIBUT_USER);
 	    	System.out.println("User connecter");
 	    	
-	      	request.getRequestDispatcher(VUE).forward(request, response);
+	      	request.getRequestDispatcher(VUE_FORUM_THEME).forward(request, response);
 	    	
 		/*
 		 * if( userConnecter.getRole() == Role.Administrateur) {

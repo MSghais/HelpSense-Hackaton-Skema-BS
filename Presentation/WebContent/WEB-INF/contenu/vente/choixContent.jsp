@@ -136,16 +136,16 @@
 	
 					
 					 
-		 		
+			
+			  	 		
 <table>
 						
-				<thead> 
+		<thead> 
 				<th> Pays </th> <th> Titre </th> 	
 				 <th> Rubrique </th> <th> Secteur </th>
 				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
 				   <th> Achat </th> <th> Voir </th> </thead>
 				 
-			  
 			  	<tbody>
 			  	
 			  	
@@ -194,127 +194,44 @@
 		</tbody>
 		</table>
 					
-					</form>
-					
-					
-				
-					
-		
-		<form action="choixContenu" method="post">
-		
-
 					
 					
 					
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post">
+				<div class="inner">
+						
+						<h1>Help Sense Square
 								
-								
-								
-									  	<c:forEach var="article" items="${modelContenu.articles}"> 
+								</h1>
+						  	
+			  	<c:forEach var="article" items="${modelContenuSelect.articles}"> 
 			  	
-			  	
-			  	  	<article>
-			  	  	
-			  	  	
 			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
 			  	
-			  	
-			
-			  	
-			  	
-			  	  	
-					<label> Titre  </label>         	<c:out value="${ article.titre}"/>
-								
-							
-						<label> Titre  </label>   	<c:out value="${article.theme}"/>
-							
-						<label> Titre  </label>    	<c:out value="${article.description}"/>
-								
-							
-					<label> Titre  </label>   > <c:out value="${article.contenu}"/>
-								
-								
-							
-					<label> Titre  </label>   	<c:out value="${article.frais}"/>
-								
-							
-					<label> Titre  </label>    	<c:out value="${article.prix}"/>
-					
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
- 				<a href="voirArticle?id=${article.id}"> Voir un article</a>
-			  	
-			  
-			  	
-			  	</c:if>
-				
-							  	
-			  	</article>
-					
-		      </c:forEach>
-			  	
-
+	  		  	 	<c:out value="${ article.titre}"/>
 	  		  	
-			  	
-			
-		      </form>
-		      
-		      </section>
-		      
-			
-					
-
-<section>
-
-	<article class="style1">
-									  	<c:forEach var="article" items="${modelContenu.articles}"> 
-			  	
-	
-			  	
-			
-			  						<span class="image">
-										<img src="Images-project/book_savoir.jpg" alt="" />
+		
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
 									</span>
-									<a href="voirArticle?id="${article.id }"></a>
-												
-			  	
-			  	  	
-					<label> Titre  </label>         	<c:out value="${ article.titre}"/>
-								
-					
-							
-						<label> Titre  </label>    	<c:out value="${article.description}"/>
-					
-								
-					
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
- 		
- 		
-					
-						 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
- 
-							
-	
-				
-					
-		      </c:forEach>
-			  	
 									
-								</article>
-
-
-</section>
-				
+							  	<c:out value="${ article.description}"/>
+								
+										
+							  	<c:out value="${ article.contenu}"/>
+								
+				<a href="voirArticle?id=${article.id}"> Voir un article</a>
+			  	
 					
-
-</div>
-
-</section>
+							
+								</article>
+								</section>
+				</c:if>
+				</c:forEach>
+					
+					</div>
+				
 				
 				
 				

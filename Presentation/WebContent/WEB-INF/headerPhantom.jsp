@@ -64,15 +64,18 @@
 							  
 									<ul >
 									
+								
+									
 										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li> 
 									
 											
 											
 										<li> <a  href="mesCommandes"> Mes échanges </a> </li> 
-										
+										</ul>
 									
 												
 										
+										<ul>
 										<li> <a href="choixContenu"> Explorer par Feeds </a>
 											<select name="rubriqueName"  > 
 														
@@ -90,15 +93,13 @@
 									
 										
 										
-										
-										<li> <a  href="Forum"> Forum </a> </li> 
-														
-														
+												
 									
 									</ul>
 							
 							</c:if>	
 				
+			
 			
 	 			
 							 
@@ -150,6 +151,21 @@
 										
 										
 										
+										</ol>
+										
+										
+										<li value="community">
+										<ol>
+										
+										
+										<li> <a  href="Forum"> Forum </a> </li> 
+											
+										<li> <a  href=fieldTchat> Thématique Tchat </a> </li> 
+												
+												
+										<li> <a  href=community> Communauté </a> </li> 
+												
+												
 										</ol>
 										
 										

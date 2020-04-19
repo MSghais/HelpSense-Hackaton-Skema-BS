@@ -15,7 +15,8 @@ import javax.servlet.http.HttpSession;
 import contenu.entite.Article;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.model.ModelContenu;
-
+import interaction.commentaire.metier.MetierInterfaceCommentaire;
+import interaction.model.commentaire.ModelInteraction;
 import utilisateurs.entite.User;
 
 import utilisateurs.model.ModelUser;
@@ -29,6 +30,21 @@ public class VueArticle extends HttpServlet {
 	@EJB 
 	MetierInterfaceArticle metier;
 	
+	@EJB 
+	MetierInterfaceCommentaire metierCommentaire;
+	
+	  public static final String ATT_USER = "utilisateur";
+	    public static final String ATT_FORM = "form";
+		public static final String ATTRIBUT_USER         = "utilisateur";
+		public static final String ATTRIBUT_USER_SESSION         = "utilisateurSession";
+		public static final String ATTRIBUT_USER_LOGIN         = "userLogin";
+		public static final String ATTRIBUT_USER_ID      = "userId";
+		public static final String ATTRIBUT_USER_ROLE      = "userRole";
+		
+		public static final String ATTRIBUT_ARTICLE_VIEW      = "article";
+		
+		
+	
 	  public static final String VUE_ARTICLE   = "WEB-INF/contenu/vente/vueArticle.jsp";
 	
 	@PostConstruct
@@ -38,6 +54,20 @@ public class VueArticle extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		
+		   ModelContenu modelVoir = new ModelContenu();
+		Long article_id = Long.valueOf(request.getParameter("id"));
+		   System.out.println("article id"+ article_id);
+		   
+		   Article article = metier.rechercherArticleIndex(article_id);
+		   request.setAttribute(ATTRIBUT_ARTICLE_VIEW, article);
+		   
+		   modelVoir.setArticle(article);
+		   request.setAttribute("modelVoir", modelVoir);
+		   
+			request.getRequestDispatcher(VUE_ARTICLE).forward(request, response);
+			
+			
 		doPost(request,response);
 	}
 	@Override
@@ -45,112 +75,78 @@ public class VueArticle extends HttpServlet {
 		System.out.println("MyServlet doPost");
 	
 	//	request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
+		  
 		
-	   ModelContenu modelVoir = new ModelContenu();
+		Article article = (Article) request.getAttribute(ATTRIBUT_ARTICLE_VIEW);
+		
+		
+		ModelInteraction modelCommentaire = new ModelInteraction();
+		
+		modelCommentaire.setArticle(article);
+		
+	
 		//ModelContenu model = new ModelContenu(); 
 		
 		   HttpSession sessionServlet = request.getSession();
 		   
-		   
-	   if(request.getParameter("id") != null) {
-		   
-		   Long article_id = Long.valueOf(request.getParameter("id"));
-		   System.out.println("article id"+ article_id);
-		   
-		   Article article = metier.rechercherArticleIndex(article_id);
-		
-		   modelVoir.setArticle(article);
-		   request.setAttribute("modelVoir", modelVoir);
-		   
-			request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
-		   
-		   
-		   if(request.getParameter("commentaire") != null) {
+		   if( !ATT_USER.isEmpty() ) {
+			   User user =  (User) sessionServlet.getAttribute(ATT_USER);
+				  System.out.println("user Vue Article" + user); 
+				  System.out.println("user Vue Article INDEX" + user.getUser_id()); 
+			 
 			   
-			   
-			   
-				request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
 		   }
+		 
+		   User user =  (User) sessionServlet.getAttribute(ATT_USER);
+			  System.out.println("user Vue Article" + user); 
+			  System.out.println("user Vue Article INDEX" + user.getUser_id()); 
+		 
 		   
-	   }
+		  
 		   
-		  // if( request.getParameter(arg0) != null )
-		
-			
-			if(request.getParameter("acronymeTheme") != null){
-				  String theme = request.getParameter("theme");
-			        
-		
-
-	      
-	        String nom = request.getParameter("art_titre");
-	        String url_link = request.getParameter("art_url");
-	        String description = request.getParameter("art_description");
-	        String contenu = request.getParameter("art_contenu");
-	        //String contenu = request.getParameter("contenu");
-	    
-	        HttpSession sessionControl = request.getSession();
+		   
+		   if(request.getParameter("commentaireArticle") != null) {
+			   
+			   
+			   String commentaire_contenu = request.getParameter("commentaire");
+			   
+			   System.out.println("commentaire contenu =" + commentaire_contenu);
+			   
+				
+			   
+			   System.out.println("Lancement commentaire creation BDD contenu ");
+			   
+				
+			   metierCommentaire.creerCommentaireSimply(commentaire_contenu,  user, article);
+			   
+			   System.out.println("Renvoi vue article ");
+			   
+			  request.getRequestDispatcher(VUE_ARTICLE).forward(request, response); 
+		   
+		   
+		   
+		   
+		   
+		   
+		   } // Fin Condition
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+	   } // fin do POST
 	   
-	        sessionControl.setAttribute("theme", theme);
-	        
-	        
-	        sessionControl.setAttribute("url_link", url_link);
-	        
-	        sessionControl.setAttribute("nom", nom);
-	        sessionControl.setAttribute("description", description);
-	        sessionControl.setAttribute("contenu", contenu);
-	        
-	        
-	        Article articleNoLInk = new Article(nom, description, contenu);
-	        
-	        
-	        
-	        Article articleLInk = new Article(nom, description, contenu, url_link); 
-			
-	        metier.persisterArticle(articleNoLInk);
-	        
-	        metier.persisterArticle(articleLInk);
-	        //this.getServletContext().getRequestDispatcher("/WEB-INF/vueInscription.jsp").forward(request, response);
+	
 		
-	    //    request.getRequestDispatcher(urlVue).forward(request, response); 
-	       
-
-	       // this.getServletContext().getRequestDispatcher("/WEB-INF/vueInscription.jsp").forward(request, response);
-	       /* if(password == password2) {
-	        session.setAttribute("username", username);
-	        session.setAttribute("login", login);
-	        
-	        session.setAttribute("password", password);
-	        session.setAttribute("email", email);
-	        
-	        User user = new User(username, login, email, password);
-	        metier.persisterUser(user);
-	        
-	        //
-		
-	        request.getRequestDispatcher(urlVue).forward(request, response); */
-	       
+	
 		
 		
-		}
 	        
-	        
-	        //request.getRequestDispatcher(urlVue).forward(request, response); 
-		
-	        //this.getServletContext().getRequestDispatcher("/WEB-INF/vueConnection.jsp").forward(request, response);
-			
-	        /*
-	        List<User> users = metier.lireTousUser();
-			List<Teacher> teachers = metier.lireTousTeacher();
-
-			model.setUsers(users);
-			model.setTeachers(teachers);
-		
-			request.setAttribute("model", model);
-			request.getRequestDispatcher(urlVue).forward(request, response); */
-		}
+} // Fin CLASSE
 		
 	
 
-	}
+	
 

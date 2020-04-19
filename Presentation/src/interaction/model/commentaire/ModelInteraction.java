@@ -1,0 +1,217 @@
+package interaction.model.commentaire;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import contenu.entite.Article;
+import contenu.entite.Theme;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
+import contenu.enume.Secteur;
+import interaction.entite.Commande;
+import interaction.entite.Commentaire;
+import utilisateurs.entite.User;
+
+
+
+
+public class ModelInteraction {
+	private List<Article> articles;
+	
+	private List<Commande> commandes;
+	
+
+	private Article articleAchat;
+	
+	private List<User> usersLectures;
+	
+	private List<Theme> themes;
+
+	private Map<Long,Article> articlesMap;
+	
+	private List<Commentaire> commentaires;
+	
+	private Map<Long, Commentaire> commentairesMap;
+	
+	private Rubriques []  rubriquesAll;
+	private Secteur [] secteurAll;
+	private Pays [] paysVal;
+
+	
+	public ModelInteraction() {
+
+	}
+	
+	public ModelInteraction(List<Article> articles, Article article, List<User> usersLectures,
+			Map<Long, Article> articlesMap) {
+		super();
+		this.articles = articles;
+		this.articleAchat = article;
+		this.usersLectures = usersLectures;
+		this.articlesMap = articlesMap;
+	}
+
+	public ModelInteraction(List<Article> articles, List<User> usersLectures, HashMap<Long,Article> articlesMap) {
+		super();
+		this.articles = new ArrayList<Article>();
+
+		this.usersLectures =  new ArrayList<User>();	
+		this.articlesMap = new HashMap<Long, Article>();
+		
+		this.themes = new ArrayList<Theme>();	
+		this.commandes = new ArrayList<Commande>();
+		
+	}
+	
+	public ModelInteraction( HashMap<Long,Article> articlesMap) {
+		super();
+		this.articles = new ArrayList<Article>();
+
+		this.usersLectures =  new ArrayList<User>();	
+		this.articlesMap = new HashMap<Long, Article>();
+		
+		this.themes = new ArrayList<Theme>();	
+		this.commandes = new ArrayList<Commande>();
+		
+		this.commentaires = new ArrayList<Commentaire>();
+		
+		this.commentairesMap = new HashMap<Long, Commentaire>();
+	}
+
+	public ModelInteraction(List<Article> articles, List<User> usersLectures) {
+		super();
+		this.articles = articles;
+
+		this.usersLectures = usersLectures;
+	}
+
+
+	public Pays[] getPaysVal() {
+		return paysVal;
+	}
+
+	public void setPaysVal(Pays[] paysVal) {
+		this.paysVal = paysVal;
+	}
+
+	public Rubriques[] getRubriquesAll() {
+		return rubriquesAll;
+	}
+
+	
+	
+
+
+	
+
+	public List<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+
+	public void setCommentaires(List<Commentaire> commentaires) {
+		this.commentaires = commentaires;
+	}
+
+	public Map<Long, Commentaire> getCommentairesMap() {
+		return commentairesMap;
+	}
+
+	public void setCommentairesMap(Map<Long, Commentaire> commentairesMap) {
+		this.commentairesMap = commentairesMap;
+	}
+
+	public List<Commande> getCommandes() {
+		return commandes;
+	}
+
+	public void setCommandes(List<Commande> commandes) {
+		this.commandes = commandes;
+	}
+
+	public Secteur[] getSecteurAll() {
+		return secteurAll;
+	}
+
+	public void setSecteurAll(Secteur[] secteurAll) {
+		this.secteurAll = secteurAll;
+	}
+
+	public Article getArticleAchat() {
+		return articleAchat;
+	}
+
+	public void setArticleAchat(Article articleAchat) {
+		this.articleAchat = articleAchat;
+	}
+
+	public List<Theme> getThemes() {
+		return themes;
+	}
+
+	public void setThemes(List<Theme> themes) {
+		this.themes = themes;
+	}
+
+	public Article getArticle() {
+		return articleAchat;
+	}
+
+	public void setArticle(Article article) {
+		this.articleAchat = article;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+	
+	public void addArticle(Article article) {
+		
+		articles.add(article);
+	}
+
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+
+
+
+	public List<User> getUsersLectures() {
+		return usersLectures;
+	}
+
+
+	public void setUsersLectures(List<User> usersLectures) {
+		this.usersLectures = usersLectures;
+	}
+
+	@Override
+	public String toString() {
+		return "ModelContenu [articles=" + articles + ", usersLectures="
+				+ usersLectures + "]";
+	}
+
+	public Map<Long, Article> getArticlesMap() {
+		return articlesMap;
+	}
+
+	public void setArticlesMap(Map<Long, Article> articlesMap) {
+		this.articlesMap = articlesMap;
+	}
+
+	public void addArticleMap(User user,Article article) {
+		
+		articlesMap.put(user.getUser_id(), article);
+	
+	}
+
+	public void setRubriquesAll(Rubriques[] rubValues) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	
+}

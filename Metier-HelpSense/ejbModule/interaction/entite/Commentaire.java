@@ -27,7 +27,7 @@ public class Commentaire {
 	
 	
 
-	@Id 
+	@Id @GeneratedValue
 	private Long id;
 	
 	private String contenu;
@@ -82,6 +82,17 @@ public class Commentaire {
 	 * @JoinColumn(name="article_id") private Article article;
 	 */
 	
+	public void ajouterCommentaireInComment(Commentaire commentaire) {
+		
+		this.responsesCommentaire.add(commentaire);
+		
+	}
+	
+	public void ajouterCommentaireUser(User user) {
+		
+		this.setUser(user);
+		
+	}
 
 
 	public List<Commentaire> getResponsesCommentaire() {

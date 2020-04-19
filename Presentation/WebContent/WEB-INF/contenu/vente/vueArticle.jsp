@@ -92,10 +92,74 @@
 		
 		</div>
 		
+		
+		
+	
+	<form action="voirArticle" method="post" > 
+	<fieldset>
+			<label for="commentaireTest"> Commentez <span class="requis">*</span> </label>
+                <input type="text" id="commentaireText" name="commentaireText"   size="250" maxlength="250" />
+                 <span class="erreur">${form.erreurs['art_frais']}</span>
+                <br />
+
+
+			<div class="field">
+			<textarea name="commentaire" id="commentaire" placeholder="Commenter"></textarea>
+		</div>
+           
+
+                <input type="submit" value="Envoyez"  name="commentaireArticle" id="commentaireArticle" /> 
+                
+                <br>
+                
+                  
+                <!--   <button type="button" value="Déposer"  name="acheterArticleButton">  
+                  </button> -->
+                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+					
+	</fieldset>
+		</form>	
 	
 			
 		
+	<div>
 	
+			<table class="alt">
+		
+		
+	
+		 	<h3> Liste des commentaires </h3>
+  	<c:forEach var="commentaire" items="${modelCommentaire.articleAchat.commentaires}"> 
+  	
+  	<c:if test="${ articleAchat.status == StatutArticle.DISPONIBLE}">
+  	
+  	
+		<thead> <th> Utilisateur </th><th> Commentaire </th> 	  	<tbody>
+			  	
+			  	<c:if test="${ !empty articleAchat.commentaires }">
+			  	
+				<tr>
+				
+					<td><c:out value="${commentaire.user}"/></td>
+					
+					<td><c:out value="${ commentaire.contenu}"/></td>
+					
+		       </c:if>
+		      
+		      </tbody>
+		      
+		     
+		       
+		      </c:if>
+		      
+		      </c:forEach>
+		      
+		      
+		     
+		</table>
+		
+	
+	</div>
 		
 		
 		
@@ -161,6 +225,36 @@
 		</table>
 		
 		</div>
+		
+		
+			
+	<form action="voirArticle" method="post" > 
+	<fieldset>
+			<label for="commentaireTest"> Commentez <span class="requis">*</span> </label>
+                <input type="text" id="commentaireText" name="commentaireText"  size="20" maxlength="10" />
+                 <span class="erreur">${form.erreurs['art_frais']}</span>
+                <br />
+
+
+			<div class="field">
+			<textarea name="commentaire" id="commentaire" placeholder="Commenter"></textarea>
+		</div>
+           
+              <br>
+              
+                 
+                
+                <input type="submit" value="Envoyez"  name="commentaireArticle" id="commentaireArticle" /> 
+                
+                <br>
+                
+                  
+                <!--   <button type="button" value="Déposer"  name="acheterArticleButton">  
+                  </button> -->
+                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+					
+	</fieldset>
+		</form>	
 		
 		
 		

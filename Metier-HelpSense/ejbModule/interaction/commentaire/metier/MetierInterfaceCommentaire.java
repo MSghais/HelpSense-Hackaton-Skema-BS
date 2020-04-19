@@ -94,7 +94,9 @@ public interface MetierInterfaceCommentaire {
 	//void creerCommentaireSimply(String login, Long article_id);
 	
 	
-	void creerCommentaireSimply(String contenu, String url_video, User user, Article article);
+	void creerCommentaireSimply(String contenu,  User user, Article article);
+	void creerCommentaireHard(String contenu, String url_video, User user, Article article);
+	void mettreAJourArticle(Article article);
 
 	
 

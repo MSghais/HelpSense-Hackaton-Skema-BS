@@ -100,7 +100,11 @@ public class Article {
 	 */
 	
 	
-	
+	public void ajouterCommentaire(Commentaire commentaire) {
+		
+		this.articleCommentaires.add(commentaire);
+		
+	}
 	
 	public Article() { 
 	

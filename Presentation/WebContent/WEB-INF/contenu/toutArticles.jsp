@@ -28,13 +28,13 @@
 	<div id="main">
 	
 	
-		<section >
+	
 							
-						<div class="inner">
+				
 				
 							
 							
-								<h4>Tableau des Articles </h4>
+								<h4> Tout les News </h4>
 								
 								<c:if test="${empty sessionScope.utilisateur }">
 								
@@ -106,310 +106,118 @@
 	
 	</form>
 										
-										
-										
-										
-										<form action="Shopping" method="post">			
-								<label for="paysVal"> Actu Nationale ?<span class="requis">* </span> </label>
-							
-		         <select name="paysName"> 
-					
-					<c:forEach var="pays" items="${paysListe }">
-					<option> <c:out value="${pays}"/> </option>
+								
+		
+		
+					</div>
 					
 					
-							
-					</c:forEach>
-					
-					</select>
-					
-					
-									
-		 <input type="submit" value="Selectionner"  name="choixPays"  /> 
-		 
-		 
-					
-					
-					 
-		 		
-<table>
+					<div class="inner">	
+						<h1>Help Sense Square
 						
-				<thead> 
-				<th> Pays </th> <th> Titre </th> 	
-				 <th> Rubrique </th> <th> Secteur </th>
-				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				   <th> Achat </th> <th> Voir </th> </thead>
-				 
-			  
-			  	<tbody>
-			  	
-			  	
-			  	<c:forEach var="article" items="${modelContenuSelect.articles}"> 
+								</h1>
+						  	
+						  	
+						  	
+			  	<c:forEach var="article" items="${modelContenu.articles}"> 
 			  	
 			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
 			  	
+	  		  	<fieldset> Titre : <c:out value="${ article.titre}"/>   </fieldset>
 	  		  	
-			  		<tr>	
-			  	
-			  			<td><c:out value="${article.pays}"/></td>
-			  			
-						  	<td><c:out value="${ article.titre}"/></td>
-								
-				
-								<td><c:out value="${article.rubrique}"/></td>
-					
-								
-								<td><c:out value="${article.secteur}"/></td>
-								
-								
-								<td><c:out value="${article.theme}"/></td>
-								
-								<td><c:out value="${article.description}"/></td>
-								
-								<td><c:out value="${article.contenu}"/></td>
-								
-								
-							
-				
-					
-							<td> <a  href="acheterArticle?acheter=${article.id}" > Acheter </a> </td> 
-					 
- 		
-							<td>		<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
-			  	
-						</tr> 
-			  	
-			  
-			  	
-			  	</c:if>
-				
-				
-					
-		      </c:forEach>
-		</tbody>
-		</table>
-					
-					</form>
-					
-					
-					
-					
-				<form action="Shopping" method="post">		
-			<label for="rubrique_name"> Rubrique de l'Article <span class="requis">* </span> </label>
-							
-							 <select name="rubriqueName" > 
-							 
-							 
-						<c:forEach var="rubriqueVal" items="${rubriquesListe}">
-									
-									<option> <c:out value="${rubriqueVal}"/> </option>
-									
-									
-							</c:forEach>
-					</select>
-					
-					
-		 <input type="submit" value="Selectionner"  name="choixRubrique"  /> 
-		 
-	
-				</form>	
-					
-					
-					
-				<table>
-						
-				<thead> 
-				<th> Pays </th> <th> Titre </th> 	
-				 <th> Rubrique </th> <th> Secteur </th>
-				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				   <th> Achat </th> <th> Voir </th> 
-				 </thead>
-				 
-			  
-			  	<tbody>
-			  	
-			  	
-			  	<c:forEach var="article" items="${modelContenuSelect.articles}"> 
-			  	
-			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
-			  	
+	  		  		<fieldset> Description : <c:out value="${ article.description}"/>   </fieldset>
 	  		  	
-			  		<tr>	
-			  	
-						 
-			  			<td><c:out value="${article.pays}"/></td>
-			  			
-						  	<td><c:out value="${ article.titre}"/></td>
-								
-				
-								<td><c:out value="${article.rubrique}"/></td>
-					
-								
-								<td><c:out value="${article.secteur}"/></td>
-								
-								
-								<td><c:out value="${article.theme}"/></td>
-								
-								<td><c:out value="${article.description}"/></td>
-								
-								<td><c:out value="${article.contenu}"/></td>
-								
-				
-					
-							<td> <a  href="acheterArticle?acheter=${article.id}" > Acheter </a> </td> 
-					 
- 		
- 								<td>		<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
-			  	
-						</tr> 
-			  	
-			  
-			  	
-			  	</c:if>
-				
-				
-					
-		      </c:forEach>
-		</tbody>
-		
-		
-		</table>
-					
-					
-		
-		<form action="Shopping" method="post">
-		
-		<label>  Choissisez un Theme : </label>
-					
-					
-					 <select name="acronymeTheme"> 
-					
-					<c:forEach var="theme" items="${modelTheme.themes }">
-					<option> <c:out value="${theme.theme_intitule}"/> </option>
-					
-					
-							
-					</c:forEach>
-					
-					</select>
-				
-		 <input type="submit" value="Selectionner"  name="choixTheme"  /> 
-						
 
-		</form>
-		
-		
+					<section >
+						<article >
+					<span class="image">
+						<img src="images/pic01.jpg" alt="" />
+					
+	  		<a href="voirArticle?id=${article.id}"> Voir un article</a>
 			
-<table>
 						
-				<thead> 
-				<th> Titre </th> <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				<th> Frais </th>   <th> Prix </th>   <th> Achat </th> <th> Voir </th> </thead>
-				 
-			  
-			  	<tbody>
-			  	
-			  	
-			  	<c:forEach var="article" items="${modelContenuSelect.articles}"> 
-			  	
-			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
-			  	
-	  		  	
-			  		<tr>	
-			  	
-						  	<td><c:out value="${ article.titre}"/></td>
-								
-								<td><c:out value="${article.theme}"/></td>
-								<td><c:out value="${article.description}"/></td>
-								
-								<td><c:out value="${article.contenu}"/></td>
-								
-								
-								<td><c:out value="${article.frais}"/></td>
-								
-								<td><c:out value="${article.prix}"/></td>
+					</span>
 					
-				
 					
-							<td> <a  href="acheterArticle?acheter=${article.id}" > Acheter </a> </td> 
+						<aside>
+						
+						<br>
+								
+								
 					 
- 		
- 								<td>		<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
-			  	
-						</tr> 
-			  	
-			  
-			  	
-			  	</c:if>
-				
-				
-					
-		      </c:forEach>
-		</tbody>
-		</table>
-		
-		
+						</aside>
+							
+					  
 	
+						</article>
+						
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+					
+						</section>
+						
+					
+						
+				</c:if>
+				</c:forEach>
+					
+					</div>
+				
 					
 					
-					
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post">
-								
-								
-								
-									  	<c:forEach var="article" items="${modelContenu.articles}"> 
+		
+		
+			
+					<div class="inner">	
+						<h1>Help Sense TESTING
+						
+								</h1>
+						  	
+						  	
+						  	
+			  	<c:forEach var="article" items="${modelContenu.articles}"> 
 			  	
-			  	
-			  	  	<article>
-			  	  	
-			  	  	
 			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
 			  	
-			  	
-			
-			  	
-			  	
-			  	  	
-					<label> Titre  </label>         	<c:out value="${ article.titre}"/>
-								
-							
-						<label> Titre  </label>   	<c:out value="${article.theme}"/>
-							
-						<label> Titre  </label>    	<c:out value="${article.description}"/>
-								
-							
-					<label> Titre  </label>   > <c:out value="${article.contenu}"/>
-								
-								
-							
-					<label> Titre  </label>   	<c:out value="${article.frais}"/>
-								
-							
-					<label> Titre  </label>    	<c:out value="${article.prix}"/>
-					
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
- 				<a href="voirArticle?id=${article.id}"> Voir un article</a>
-			  	
-			  
-			  	
-			  	</c:if>
-				
-							  	
-			  	</article>
-					
-		      </c:forEach>
-			  	
-
+	  		  	<fieldset> Titre : <c:out value="${ article.titre}"/>   </fieldset>
 	  		  	
-			  	
+
+					<section >
+						<article >
+					<span class="image">
+						<img src="images/pic01.jpg" alt="" />
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
 			
-		      </form>
-		      
-		      </section>
+						
+					</span>
+					
+					
+						<aside>
+						
+						<br>
+								
+								
+					 
+						</aside>
+							
+					  
+	
+						</article>
+						
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+					
+						</section>
+						
+					
+						
+				</c:if>
+				</c:forEach>
+					
+					</div>
+				
+	
 		      
 			
 					
@@ -423,7 +231,7 @@
 			  	
 			
 			  						<span class="image">
-										<img src="Images-project/book_savoir.jpg" alt="" />
+										<img src="images/pic01.jpg" alt="" />
 									</span>
 									<a href="voirArticle?id="${article.id }"></a>
 												

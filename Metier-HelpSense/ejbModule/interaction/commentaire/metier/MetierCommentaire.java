@@ -15,6 +15,7 @@ import org.jboss.resteasy.spi.HttpRequest;
 import contenu.entite.Article;
 import contenu.entite.Theme;
 import contenu.enume.StatutArticle;
+import contenu.persistance.article.PersistanceArticleItf;
 import contenu.persistance.theme.PersistanceThemeItf;
 import interaction.commentaire.persistance.PersistanceInterfaceCommentaire;
 import interaction.entite.Commentaire;
@@ -33,6 +34,9 @@ public class MetierCommentaire implements MetierInterfaceCommentaire {
 
 	@EJB 
 	private PersistanceUserItf persistanceUser;
+	
+	@EJB 
+	private PersistanceArticleItf persistanceArticle;
 	
 	
 	private Long nombreCommentaire = 1L;
@@ -77,7 +81,33 @@ public class MetierCommentaire implements MetierInterfaceCommentaire {
 	
 	
 	@Override
-	public void creerCommentaireSimply(String contenu, String url_video, User user, 
+	public void creerCommentaireSimply(String contenu, User user, 
+			Article article ) {
+		// TODO Auto-generated method stub
+		
+		
+		Commentaire commentaire = new Commentaire();
+		
+		commentaire.setContenu(contenu);
+	//	commentaire.setArticle(article);
+		commentaire.setUser(user);
+		commentaire.setDate(new Date());
+		
+		persistanceCommentaire.persisterCommentaire(commentaire);
+		
+
+		mettreAJourCommentaire(commentaire);
+		
+		
+		article.getArticleCommentaires().add(commentaire);
+		
+		mettreAJourArticle(article);
+		
+		
+	}
+	
+	@Override
+	public void creerCommentaireHard(String contenu, String url_video, User user, 
 			Article article ) {
 		// TODO Auto-generated method stub
 		
@@ -90,6 +120,7 @@ public class MetierCommentaire implements MetierInterfaceCommentaire {
 		
 		
 	}
+
 
 	
 	
@@ -128,6 +159,11 @@ public class MetierCommentaire implements MetierInterfaceCommentaire {
 	}
 
 
+	@Override
+	public void mettreAJourArticle(Article article) {
+		persistanceArticle.mergeArticleReturn(article);
+
+	}
 
 	@Override
 	public void mettreAJourCommentaire(Commentaire Commentaire) {
