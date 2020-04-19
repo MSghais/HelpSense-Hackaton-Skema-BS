@@ -59,28 +59,35 @@
                     <ul>
                     
                    
+                   
+                   <li value=" News-Sense"> 
+                   	
+                   	<fieldset>
+                   	
+                   	<legend>  News-Sense</legend>
+                   	
+                 									
+        							<li> <a href="Accueil"> Accueil</a>
+									                   
+						 			<li> <a href="Shopping"> Actualités </a>
+						 			
+						 			
+						 				
+									 <li> <a  href=fieldTchat> Forum </a> 
+											
+											
+									 <li> <a  href=community> Communauté </a>
+											
+									
+									
+										
+										
+											
+											 </fieldset>
+											 	</li>
+					
                 
-                
-                   			<li>
-                   		
-                   			<li><a href="Accueil"> Accueil</a>
-			                      	
-			
-							 			<a href="Shopping"> Actualités </a>
-							 			
-							 			
-							 				
-										 <a  href=fieldTchat> Forum </a> 
-												
-												
-										 <a  href=community> Communauté </a>
-												
-							 			
-							 			</li>
-							 			
-							 			
-							 			
-                   			<li>
+                				
                    		
                    			
 										
@@ -189,108 +196,22 @@
 				
 				
 				
-						<c:if test="${!empty sessionScope.userId}">
 					
-					
-							  
-							  
-									
-								
-						
-									
-									<li><a href="Accueil"> Accueil</a>
-			                      	
-			
-							 			<a href="Shopping"> Actualités </a>
-							 			
-							 			
-							 		 <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
-											
-										<a  href="mesCommandes"> Mes échanges </a>
-										 <a  href=fieldTchat> Forum </a> 
-												
-												
-										 <a  href=community> Communauté </a>
-												
-							 			
-							 			</li>
-									
-										
-									
-
-										
-									
-												
-							
-										
-												
-										
-										<li> <a href="choixContenu"> Explorer par  : </a>
-										<fieldset>
-											<legend>  <label> Pays </label> </legend>
-										<select name="paysName"> 
-												
-												<c:forEach var="pays" items="${paysListe }">
-												<option> <c:out value="${pays}"/> </option>
-												
-												
-														
-												</c:forEach>
-												
-												</select>
-												
-											<legend>  <label> Secteur </label> </legend>
-													<select name="Secteur"  > 
-														
-														<c:forEach var="secteur" items="${Secteur.values() }">
-														<option> <c:out value="${secteur}"/> </option>
-														
-														</c:forEach>
-					
-														</select>
-														
-													
-														<legend>  <label> Rubrique </label> </legend>
-														 <select name="choixRubrique" > 
-														 
-														 
-													<c:forEach var="rubriqueVal" items="${rubriquesListe}">
-																
-																<option> <c:out value="${rubriqueVal}"/> </option>
-																
-																
-														</c:forEach>
-												</select>
-				
-												
-											</fieldset>
-										</li>
-										
-										
-										
-												
-									    
-												
-											
-														
-
-								</li>
-										
-											
-									
-							
-						</c:if>
-		
-			
 			
 	 			
 							 
 							 		<c:if test="${!empty sessionScope.utilisateur}">
                     
-                   <h5> DashBoard </h5> 
+                 
                    
                    	<li value="DashBoard"> 
-										<ul>
+                   	
+                   	<fieldset>
+                   	
+                   	<legend> DashBoard</legend>
+                   	
+                 
+								
 										
 				 
 										
@@ -307,24 +228,11 @@
 										<li> <a  href="addArticleMVC"> Déposer News </a> 
 											
 										<li><a  href="mesCommandes"> Mes échanges </a>
+															
 										
 										
-										<li> <a  href=fieldTchat> Forum </a> 
-												
-												
-										<li> <a  href=community> Communauté </a> </li> 
-										
-									
-												
-								
-                   	
-                   
-										
-									
-										
-										
-											 </ul>	
-											 
+											
+											 </fieldset>
 											 	</li>
 					
                     		</c:if>

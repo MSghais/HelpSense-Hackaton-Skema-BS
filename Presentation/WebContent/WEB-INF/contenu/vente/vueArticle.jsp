@@ -21,7 +21,9 @@
 		
 		
 		
-				<fieldset> Fiche </fieldset>
+				<h2>    Fiche signalétique </h2><fieldset>
+				
+			
 				
 				
 	<article class="forecast">
@@ -81,65 +83,11 @@
 								</a>
 								</article>
 		
+				  </fieldset>
 		
 		</div>
 		
-		
-		<fieldset>   Test 2 articles</fieldset>
-		
-			<article class="forecast">
-	
-	<h4> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h4>
-				  	
-						<span class="image">
-					<img src="Images-project/book_savoir.jpg" alt="" />
-				</span>
 			
-							
-			  	
-			  	  	<article class="day-forecast">
-			  	  			<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>			
-			  	  	</article>
-
-								
-					
-			
-			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
-		
-			  	  		<label> rubrique  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
-			  	  	</article>
-						
-			  	  		
-			  	  		
-						
-			  	  		<label> pays  </label>    	<c:out value="${modelVoir.article.pays}"/>				
-			  
-						
-		
-				
-			  	  		<label> description  </label>    	<c:out value="${modelVoir.article.description}"/>				
-			  	
-						
-									
-			  	  		<label> contenu  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
-			  	 
-						
-				  	  		
-							
-
-  	
-  			 <a href="voirArticle?like=${article.id}"> 
-						<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
-					</a>
-					
-			<a href="voirArticle?dislike=${article.id}">  
-						<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
-					</a>
-						
-				
-		
-		
-		</div>
 		
 		
 		
@@ -178,6 +126,8 @@
 	
 		
 		<h3> Posez un commentaire</h3>
+		
+		
 	
 	<form action="voirArticle" method="post" > 
 	<fieldset>
@@ -209,13 +159,14 @@
 	
 	
 		<div>
+		<h3> Liste des commentaires </h3>
 	
 			<table class="alt">
 		
 		
 		
 	
-		 	<h3> Liste des commentaires </h3>
+		 	
 		 	
 		 	
 		 
