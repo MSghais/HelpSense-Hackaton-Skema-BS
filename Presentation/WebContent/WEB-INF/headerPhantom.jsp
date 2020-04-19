@@ -22,15 +22,10 @@
 
 							<!-- Logo -->
 								<a href="Shopping" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title"> Help Sense</span>
+									<span class="symbol"><img height="110" width="90" src="Images-Project/LogoHelp.png" alt="" /></span><span class="title"> Help Sense</span>
 								</a>
 								
-								
-								<!-- Logo -->
-								<a href="Shopping" class="logo">
-									<span class="symbol"><img height="110" width="90" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title"> Help Sense</span>
-								</a>
-
+					
 							<!-- Nav -->
 								<nav>
 									<ul>
@@ -49,9 +44,11 @@
 						<a href="Shopping" class="logo">
 									
 									
-									<span class="symbol"><img width="1000" height="450" src="Images-Project/book_savoir.jpg" alt="" /></span><span class="title">  </span>
+									<span class="symbol"><img width="1000" height="450" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title">  </span>
 								</a>
 								
+								
+					
 							
 <!--  Menu BAR UP  -->
 	
@@ -178,16 +175,21 @@
 				
 						<c:if test="${empty sessionScope.utilisateur}">
 							   
-							<ul>										
+																
 												 
 							 <li > 
+							 <fieldset>
 							 
-							 <a class="dropdown-item bg-dark  text-light"href="Connexion">Connexion</a> </li>
+							 
+							 <li> <a class="dropdown-item bg-dark  text-light"href="Connexion">Connexion</a> 
 							
 								 
-							 <li> <a class="dropdown-item bg-dark  text-light" href="Inscription">Incription</a></li>
+							<li> <a class="dropdown-item bg-dark  text-light" href="Inscription">Incription</a>
+							 
+							 </fieldset>
+							 
 								
-							</ul>
+						
 							</c:if>
 							
 				
@@ -217,18 +219,22 @@
 										
 										<li>  ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
 										
-											
-										<li> <a  href="mesVentes"> Mes Analyses </a>  
-									
-										
-														
 										<li> <a href="mesAchats"> Mes Follows </a>
 										
-										
-										<li> <a  href="addArticleMVC"> Déposer News </a> 
+									
 											
 										<li><a  href="mesCommandes"> Mes échanges </a>
 															
+											
+											
+									 <legend> Role : ${sessionScope.utilisateur.role} </legend>
+											
+										<li> <a  href="mesVentes"> Mes Analyses </a>  
+									
+											
+										<li> <a  href="addArticleMVC"> Déposer News </a> 
+														
+										
 										
 										
 											

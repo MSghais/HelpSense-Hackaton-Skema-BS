@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title> Good POEI </title>
+		<title> Sense  Actualités </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	
@@ -18,7 +18,9 @@
 		    
 		    	 
 		    
-									<h1>Cherchez votre bonheur</h1> <br>	
+									<h1> Donnez du sens a vos News²
+						
+								</h1>	
 									
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -30,11 +32,145 @@
 	
 	
 							
+				<form>
+					<div class="inner">	
+						
+						  	
+						  	
+						  	
+			  	<c:forEach var="article" items="${modelContenu.articles}"> 
+			  	
+			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
+			  	
+			  	  	<h4> Titre de l'Article : <c:out value="${ article.titre}"/> </h4>
+	  		 
+	  		  	
+	  		  		
+	  		  	<fieldset> Description : <c:out value="${ article.description}"/>   </fieldset>
+
+					<section >
+						<article >
+					<span class="image">
+					<img src="images/labo-pointer.png" alt="" />
+		
+		
+			
+						
+					</span>
+					
+					
+						<aside>
+						
+						<br>
+								
+								
+					 
+						</aside>
+							
+					  
+	
+						</article>
+						
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+					
+					<a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+				<a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"></span>
+								</a>
+		
+						</section>
+						
+					
+						
+				</c:if>
+				</c:forEach>
+					
+					</div>
+					
+					</form>
 				
 				
 							
 							
-								<h4> Tout les News </h4>
+							
+										
+								
+		
+		
+					</div>
+					
+					
+				
+					
+					
+		
+		
+			<form>
+					<div class="inner">	
+						<h1>Help Sense TESTING
+						
+								</h1>
+						  	
+						  	
+						  	
+			  	<c:forEach var="article" items="${modelContenu.articles}"> 
+			  	
+			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
+			  	
+	  		  	<fieldset> Titre : <c:out value="${ article.titre}"/>   </fieldset>
+	  		  	
+
+					<section >
+						<article >
+					<span class="image">
+						<img src="images/labo-pointer.png" alt="" />
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+			
+						
+					</span>
+					
+					
+						<aside>
+						
+						<br>
+								
+								
+					 
+						</aside>
+							
+					  
+	
+						</article>
+						
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+					<a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Sense</span>
+								</a>
+								
+				<a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+								</a>
+		
+						</section>
+						
+					
+						
+				</c:if>
+				</c:forEach>
+					
+					</div>
+					</form>
+				
+	
+		      
+			
+						<h4> Tout les News </h4>
 								
 								<c:if test="${empty sessionScope.utilisateur }">
 								
@@ -115,213 +251,7 @@
 		</table>
 	
 	</form>
-										
-								
-		
-		
-					</div>
-					
-					
-					<div class="inner">	
-						<h1>Help Sense Square
-						
-								</h1>
-						  	
-						  	
-						  	
-			  	<c:forEach var="article" items="${modelContenu.articles}"> 
-			  	
-			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
-			  	
-	  		  	<fieldset> Titre : <c:out value="${ article.titre}"/>   </fieldset>
-	  		  	
-	  		  		<fieldset> Description : <c:out value="${ article.description}"/>   </fieldset>
-	  		  	
 
-					<section >
-						<article >
-					<span class="image">
-						<img src="images/pic01.jpg" alt="" />
-		
-		
-			
-						
-					</span>
-					
-					
-						<aside>
-						
-						<br>
-								
-								
-					 
-						</aside>
-							
-					  
-	
-						</article>
-						
-						<a href="voirArticle?id=${article.id}"> Voir un article</a>
-	  	
-					
-					<a href="voirArticle?like=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
-								</a>
-								
-				<a href="voirArticle?dislike=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"></span>
-								</a>
-		
-						</section>
-						
-					
-						
-				</c:if>
-				</c:forEach>
-					
-					</div>
-				
-					
-					
-		
-		
-			
-					<div class="inner">	
-						<h1>Help Sense TESTING
-						
-								</h1>
-						  	
-						  	
-						  	
-			  	<c:forEach var="article" items="${modelContenu.articles}"> 
-			  	
-			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
-			  	
-	  		  	<fieldset> Titre : <c:out value="${ article.titre}"/>   </fieldset>
-	  		  	
-
-					<section >
-						<article >
-					<span class="image">
-						<img src="images/pic01.jpg" alt="" />
-						<a href="voirArticle?id=${article.id}"> Voir un article</a>
-	  	
-			
-						
-					</span>
-					
-					
-						<aside>
-						
-						<br>
-								
-								
-					 
-						</aside>
-							
-					  
-	
-						</article>
-						
-						<a href="voirArticle?id=${article.id}"> Voir un article</a>
-	  	
-					<a href="voirArticle?like=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Sense</span>
-								</a>
-								
-				<a href="voirArticle?dislike=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
-								</a>
-		
-						</section>
-						
-					
-						
-				</c:if>
-				</c:forEach>
-					
-					</div>
-				
-	
-		      
-			
-					
-
-<section>
-
-<div>
-	<article class="style1">
-	
-		  	<c:forEach var="article" items="${modelContenu.articles}"> 
-			  	
-	
-			  	
-						
-	<article class="forecast">
-	
-	<h4> Titre de l'Article : <c:out value="${ article.titre}"/> </h4>
-				  	
-						<span class="image">
-					<img src="Images-project/book_savoir.jpg" alt="" />
-				</span>
-			
-
-						
-						<article class="day-forecast">
-			  	  		<label> Theme  </label>    	<c:out value="${article.theme}"/>				
-			  	  	</article>
-			  	  	
-			  	  		
-			  	  		
-			  	  		
-						<article class="day-forecast">
-			  	  		<label> Pays  </label>    	<c:out value="${article.pays}"/>				
-			  	  	</article>
-						
-						
-						<article class="day-forecast">
-			  	  		<label> Rubrique  </label>    	<c:out value="${article.rubrique}"/>				
-			  	  	</article>
-			  	  	
-			  	  	<article class="day-forecast">
-			  	  		<label> Secteur  </label>    	<c:out value="${article.secteur}"/>				
-			  	  	</article>
-						
-						
-					
-						
-						<article class="day-forecast">
-			  	  		<label> Description  </label>    	<c:out value="${article.description}"/>				
-			  	  	</article>
-			  	  	
-			  	  	
-						
-									<article class="day-forecast">
-			  	  		<label> Contenu  </label>    	<c:out value="${article.contenu}"/>				
-			  	  	</article>
-						
-								
-						
-	
-					 
-		
-			  			 <a href="voirArticle?like=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
-								</a>
-								
-						<a href="voirArticle?dislike=${article.id}">  
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
-								</a>
-								</article>
-		
-		</c:forEach>
-	
-		
-								
-
-			</div>
-			
-			</section>
 				
 				
 				

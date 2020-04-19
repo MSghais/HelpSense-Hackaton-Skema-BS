@@ -4,15 +4,15 @@ import java.util.List;
 
 public enum Role {
 
-	Business,  Acheteur, Vendeur, Administrateur;
+	Analyste, Curious, Oracle, Administrateur;
 
 
 
 
 	public String action() {
 		switch(this) {
-			case Administrateur : return "cinema";
-			case Business : return "determiner";
+			case Analyste : return "cinema";
+			case Curious : return "determiner";
 			default : return "travailler";
 		}
  	}
