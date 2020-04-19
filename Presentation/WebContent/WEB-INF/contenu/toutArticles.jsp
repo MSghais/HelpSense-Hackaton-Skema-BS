@@ -53,7 +53,7 @@
 					<span class="image">
 					<img src="images/labo-pointer.png" alt="" />
 		
-		
+				<a href="voirArticle?id=${article.id}"> Voir un article</a>
 			
 						
 					</span>
@@ -221,11 +221,8 @@
 				
 						 
 					
-						 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
+				 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
 						 
-				
-		
-	
  				<td> <a href="voirArticle?like=${article.id}"> 
 					<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
 				</a>

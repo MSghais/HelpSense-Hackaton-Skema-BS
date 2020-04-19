@@ -3430,3 +3430,10 @@ header h2
     margin: .2rem;
     font-size: 1rem;
 }
+
+.navBar{
+	
+	flex-direction: row;
+	position:absolute;
+	
+}

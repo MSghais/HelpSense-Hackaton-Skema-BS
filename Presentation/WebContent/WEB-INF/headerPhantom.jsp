@@ -44,7 +44,7 @@
 						<a href="Shopping" class="logo">
 									
 									
-									<span class="symbol"><img width="1000" height="450" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title">  </span>
+									<span class="symbol"><img width="600px" height="450px" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title">  </span>
 								</a>
 								
 								
@@ -52,7 +52,7 @@
 							
 <!--  Menu BAR UP  -->
 	
-                <nav >
+                <nav class='narBar'>
                     <ul>
                     
                    

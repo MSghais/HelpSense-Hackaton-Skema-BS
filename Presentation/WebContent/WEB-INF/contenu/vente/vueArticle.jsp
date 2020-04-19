@@ -23,14 +23,14 @@
 		
 		
 		
-				<h2>    Fiche signalétique </h2><fieldset>
+				<h1>    Fiche signalétique </h1> 
 				
 			
-				
+				<fieldset>
 				
 	<article class="forecast">
 	
-	<h4> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h4>
+	<h3> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h3>
 				  	
 						<span class="image">
 					<img src="images/labo-pointer.png" alt="" />
