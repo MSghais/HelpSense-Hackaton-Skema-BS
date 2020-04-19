@@ -28,7 +28,7 @@
 								
 								<!-- Logo -->
 								<a href="Shopping" class="logo">
-									<span class="symbol"><img height="70" width="70" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title"> Help Sense</span>
+									<span class="symbol"><img height="110" width="90" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title"> Help Sense</span>
 								</a>
 
 							<!-- Nav -->
@@ -49,7 +49,7 @@
 						<a href="Shopping" class="logo">
 									
 									
-									<span class="symbol"><img width="1100" height="350" src="Images-Project/book_savoir.jpg" alt="" /></span><span class="title">  </span>
+									<span class="symbol"><img width="1000" height="450" src="Images-Project/book_savoir.jpg" alt="" /></span><span class="title">  </span>
 								</a>
 								
 							
@@ -66,18 +66,33 @@
                    			<li><a href="Accueil"> Accueil</a>
 			                      	
 			
-							 			<a href="Shopping"> Actualités </a></li>
-           
-                   					
-								
-										
-										
+							 			<a href="Shopping"> Actualités </a>
+							 			
+							 			
+							 				
+										 <a  href=fieldTchat> Forum </a> 
+												
+												
+										 <a  href=community> Communauté </a>
+												
+							 			
+							 			</li>
+							 			
+							 			
+							 			
+                   			<li>
+                   		
+                   			
 										
 								
 										
 										<ul>
 										
-										<li> <a href="choixContenu"> Explorer par Feeds : </a>
+										<fieldset>
+										
+										<li> <a href="choixContenu"> Explorer par : </a>
+										
+										<legend>  Pays </legend>
 										<select name="paysName"> 
 												
 												<c:forEach var="pays" items="${paysListe }">
@@ -89,7 +104,7 @@
 												
 												</select>
 												
-										
+										<legend>  Secteur </legend>
 													<select name="Secteur"  > 
 														
 														<c:forEach var="secteur" items="${Secteur.values() }">
@@ -100,7 +115,7 @@
 														</select>
 														
 													
-													
+														<legend>  Rubriques </legend>
 														 <select name="choixRubrique" > 
 														 
 														 
@@ -112,28 +127,18 @@
 														</c:forEach>
 												</select>
 				
-													
-			
-												 <select name="acronymeTheme"> 
-												
-												<c:forEach var="theme" items="${modelTheme.themes }">
-												<option> <c:out value="${theme.theme_intitule}"/> </option>
-												
-												
-														
-														
-												</c:forEach>
-												
-												</select>
-												
+										
 										</li>
+										
+										
+												
+											</fieldset>
 										</ul>
 										
 									
 										
 									    
-												
-											
+										
 														
 
                    			
@@ -191,19 +196,24 @@
 							  
 									
 								
-								<li> <a href="compte"> </a>
-								
+						
 									
-										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
+									<li><a href="Accueil"> Accueil</a>
+			                      	
+			
+							 			<a href="Shopping"> Actualités </a>
+							 			
+							 			
+							 		 <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
 											
 										<a  href="mesCommandes"> Mes échanges </a>
-										 </li> 
-									
-									
-									
-										 
-							
-									</li>
+										 <a  href=fieldTchat> Forum </a> 
+												
+												
+										 <a  href=community> Communauté </a>
+												
+							 			
+							 			</li>
 									
 										
 									
@@ -211,10 +221,13 @@
 										
 									
 												
-								
-										<li> <a href="choixContenu"> Explorer par Feeds </a>
+							
 										
+												
 										
+										<li> <a href="choixContenu"> Explorer par  : </a>
+										<fieldset>
+											<legend>  <label> Pays </label> </legend>
 										<select name="paysName"> 
 												
 												<c:forEach var="pays" items="${paysListe }">
@@ -226,7 +239,7 @@
 												
 												</select>
 												
-										
+											<legend>  <label> Secteur </label> </legend>
 													<select name="Secteur"  > 
 														
 														<c:forEach var="secteur" items="${Secteur.values() }">
@@ -237,7 +250,7 @@
 														</select>
 														
 													
-													
+														<legend>  <label> Rubrique </label> </legend>
 														 <select name="choixRubrique" > 
 														 
 														 
@@ -249,19 +262,12 @@
 														</c:forEach>
 												</select>
 				
-													
-			
-												 <select name="acronymeTheme"> 
 												
-												<c:forEach var="theme" items="${modelTheme.themes }">
-												<option> <c:out value="${theme.theme_intitule}"/> </option>
-												
-												
-														
-														
-												</c:forEach>
-												
-												</select>
+											</fieldset>
+										</li>
+										
+										
+										
 												
 									    
 												
@@ -279,58 +285,51 @@
 			
 	 			
 							 
-							 		
-					
- 	
- 	
- 						  
-                 		<c:if test="${!empty sessionScope.utilisateur}">
+							 		<c:if test="${!empty sessionScope.utilisateur}">
                     
+                   <h5> DashBoard </h5> 
                    
-										<ol>
+                   	<li value="DashBoard"> 
+										<ul>
 										
+				 
 										
-											<li value="DashBoard"> 
-										
-										 ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
+										<li>  ${sessionScope.utilisateur.login} : <a href="deconnexion">Déconnexion</a>
 										
 											
-										<li> <a  href="mesVentes"> Mes Analyses </a> </li> 
+										<li> <a  href="mesVentes"> Mes Analyses </a>  
 									
 										
 														
-										<li> <a href="mesAchats"> Mes Follows </a> </li> 
+										<li> <a href="mesAchats"> Mes Follows </a>
 										
 										
-										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
+										<li> <a  href="addArticleMVC"> Déposer News </a> 
 											
 										<li><a  href="mesCommandes"> Mes échanges </a>
-										 </li> 
-									
 										
 										
-										
-										</ol>
-										
-										
-										<li value="community">
-										<ol>
-										
-									
-											
-										<li> <a  href=fieldTchat> Forum </a> </li> 
+										<li> <a  href=fieldTchat> Forum </a> 
 												
 												
 										<li> <a  href=community> Communauté </a> </li> 
+										
+									
 												
-												
-										</ol>
+								
+                   	
+                   
 										
-										</li>
+									
 										
 										
-										
+											 </ul>	
+											 
+											 	</li>
+					
                     		</c:if>
+ 	
+ 	
  	
                    	
                    	 </ul>

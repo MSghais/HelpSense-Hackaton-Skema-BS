@@ -46,10 +46,10 @@
 	<form action="toutArticles" method="post">
 	<table >
 		
-			<thead>  				<th> Pays </th> <th> Titre </th> 	
+			<thead>  				 <th> Titre </th> 	<th> Pays </th>
 				 <th> Rubrique </th> <th> Secteur </th>
 				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				   <th> Achat </th> <th> Voir </th> 
+				   <th> Voir </th> 
 				   
 				   <th> Like </th> <th> Dislike </th></thead>
 				 </thead>
@@ -63,10 +63,10 @@
 			  	
 			  		<tr>	
 			  	
-						  	<td><c:out value="${article.pays.valueOfLabel(pays)}"/></td>
 			  			
 						  	<td><c:out value="${ article.titre}"/></td>
 								
+						  	<td><c:out value="${article.pays.valueOfLabel(pays)}"/></td>
 				
 								<td><c:out value="${article.rubrique}"/></td>
 					
@@ -83,9 +83,6 @@
 		
 					
 				
-						<c:if test="${!empty sessionScope.utilisateur }">
-							<td> <a  href="acheterArticle?acheter=${article.id}" > Acheter </a> </td> 
-						 </c:if>
 						 
 					
 						 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
@@ -145,8 +142,8 @@
 						<article >
 					<span class="image">
 						<img src="images/pic01.jpg" alt="" />
-					
-	  		<a href="voirArticle?id=${article.id}"> Voir un article</a>
+		
+		
 			
 						
 					</span>
@@ -252,60 +249,79 @@
 
 <section>
 
+<div>
 	<article class="style1">
-									  	<c:forEach var="article" items="${modelContenu.articles}"> 
+	
+		  	<c:forEach var="article" items="${modelContenu.articles}"> 
 			  	
 	
 			  	
+						
+	<article class="forecast">
+	
+	<h4> Titre de l'Article : <c:out value="${ article.titre}"/> </h4>
+				  	
+						<span class="image">
+					<img src="Images-project/book_savoir.jpg" alt="" />
+				</span>
 			
-			  						<span class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</span>
-									<a href="voirArticle?id="${article.id }"></a>
-												
-			  	
+
+						
+						<article class="day-forecast">
+			  	  		<label> Theme  </label>    	<c:out value="${article.theme}"/>				
+			  	  	</article>
 			  	  	
-					<label> Titre  </label>         	<c:out value="${ article.titre}"/>
-								
+			  	  		
+			  	  		
+			  	  		
+						<article class="day-forecast">
+			  	  		<label> Pays  </label>    	<c:out value="${article.pays}"/>				
+			  	  	</article>
+						
+						
+						<article class="day-forecast">
+			  	  		<label> Rubrique  </label>    	<c:out value="${article.rubrique}"/>				
+			  	  	</article>
+			  	  	
+			  	  	<article class="day-forecast">
+			  	  		<label> Secteur  </label>    	<c:out value="${article.secteur}"/>				
+			  	  	</article>
+						
+						
 					
-							
-						<label> Titre  </label>    	<c:out value="${article.description}"/>
-					
+						
+						<article class="day-forecast">
+			  	  		<label> Description  </label>    	<c:out value="${article.description}"/>				
+			  	  	</article>
+			  	  	
+			  	  	
+						
+									<article class="day-forecast">
+			  	  		<label> Contenu  </label>    	<c:out value="${article.contenu}"/>				
+			  	  	</article>
+						
 								
-					
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
- 				<a href="voirArticle?like=${article.id}"> Like </a>
-
-			  	
-			  	<a href="voirArticle?dislike=${article.id}"> Dislike </a>
-			  	
-			  				<td> <a href="voirArticle?like=${article.id}">
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Help Sense</span>
-								</a>
-								
-								<td> <a href="voirArticle?dislike=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.jpg" alt="" /></span><span class="title"> Help Sense</span>
-								</a>
-								
-			
+						
 	
-				
-					
-		      </c:forEach>
-			  	
-									
+					 
+		
+			  			 <a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+						<a href="voirArticle?dislike=${article.id}">  
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+								</a>
 								</article>
+		
+		</c:forEach>
+	
+		
+								
 
-
-</section>
-				
-					
-
-</div>
-
-</section>
+			</div>
+			
+			</section>
 				
 				
 				

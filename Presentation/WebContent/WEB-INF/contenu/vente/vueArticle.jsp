@@ -21,7 +21,7 @@
 		
 		
 		
-				
+				<fieldset> Fiche </fieldset>
 				
 				
 	<article class="forecast">
@@ -32,69 +32,60 @@
 					<img src="Images-project/book_savoir.jpg" alt="" />
 				</span>
 			
-							
-			  	
-			  	  	<article class="day-forecast">
-			  	  			<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>			
-			  	  	</article>
 
-								
-					
-				
 						
 						<article class="day-forecast">
 			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
 			  	  	</article>
 			  	  	
-			  	  			<article class="day-forecast">
-			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
-			  	  	</article>
-						
+			  	  		
 			  	  		
 			  	  		
 						<article class="day-forecast">
-			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  	  		<label> Pays  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  	  	</article>
+						
+						
+						<article class="day-forecast">
+			  	  		<label> Rubrique  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
+			  	  	</article>
+			  	  	
+			  	  	<article class="day-forecast">
+			  	  		<label> Secteur  </label>    	<c:out value="${modelVoir.article.secteur}"/>				
 			  	  	</article>
 						
 						
 					
 						
-						
 						<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
+			  	  		<label> Description  </label>    	<c:out value="${modelVoir.article.description}"/>				
 			  	  	</article>
+			  	  	
+			  	  	
 						
 									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
+			  	  		<label> Contenu  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
 			  	  	</article>
 						
-									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
-			  	  	</article>
+								
 						
-									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.frais}"/>				
-			  	  	</article>
-						
-									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>				
-			  	  	</article>
-						
-							
-				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
+	
 					 
-				
-								<a href="voirArticle?like=${article.id}"> Like </a>
-
-			  	
-			  	<a href="voirArticle?dislike=${article.id}"> Dislike </a>
-									
+		
+			  			 <a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+						<a href="voirArticle?dislike=${article.id}">  
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+								</a>
 								</article>
 		
 		
 		</div>
 		
+		
+		<fieldset>   Test 2 articles</fieldset>
 		
 			<article class="forecast">
 	
@@ -115,50 +106,37 @@
 			
 			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
 		
-			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
+			  	  		<label> rubrique  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
 			  	  	</article>
 						
 			  	  		
 			  	  		
 						
-			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  	  		<label> pays  </label>    	<c:out value="${modelVoir.article.pays}"/>				
 			  
 						
 		
 				
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
+			  	  		<label> description  </label>    	<c:out value="${modelVoir.article.description}"/>				
 			  	
 						
 									
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
+			  	  		<label> contenu  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
 			  	 
 						
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
-			 
-						
-								
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.frais}"/>				
-			  	  
-						
-									<article class="day-forecast">
-			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>				
-			  	  	</article>
-						
+				  	  		
 							
+
+  	
+  			 <a href="voirArticle?like=${article.id}"> 
+						<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+					</a>
+					
+			<a href="voirArticle?dislike=${article.id}">  
+						<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+					</a>
+						
 				
-					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
-					 
-	
-			  	
-			  			 <a href="voirArticle?like=${article.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Help Sense</span>
-								</a>
-								
-						<a href="voirArticle?dislike=${article.id}">  
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> Help Sense</span>
-								</a>
-									
-								</article>
 		
 		
 		</div>
@@ -195,11 +173,52 @@
 		
 	<div>
 	
+	
+	
+	
+		
+		<h3> Posez un commentaire</h3>
+	
+	<form action="voirArticle" method="post" > 
+	<fieldset>
+			<label for="commentaireTest"> Commentez <span class="requis">*</span> </label>
+                <input type="text" id="commentaireText" name="commentaireText"   size="250" maxlength="250" />
+                 <span class="erreur">${form.erreurs['art_frais']}</span>
+                <br />
+
+
+			<div class="field">
+			<textarea name="commentaire" id="commentaire" placeholder="Commenter"></textarea>
+		</div>
+           
+
+                <input type="submit" value="Envoyez"  name="commentaireArticle" id="commentaireArticle" /> 
+                
+                <br>
+                
+                  
+                <!--   <button type="button" value="Déposer"  name="acheterArticleButton">  
+                  </button> -->
+                 <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+					
+	</fieldset>
+	
+	
+	
+
+	
+	
+		<div>
+	
 			<table class="alt">
+		
 		
 		
 	
 		 	<h3> Liste des commentaires </h3>
+		 	
+		 	
+		 
   	<c:forEach var="commentaire" items="${modelCommentaire.articleAchat.commentaires}"> 
   	
   	<c:if test="${ articleAchat.status == StatutArticle.DISPONIBLE}">
@@ -233,12 +252,17 @@
 	</div>
 		
 		
+			
+	
+		</form>	
 		
-	<h4>Tableau des Articles </h4>
+		
+	<h4> Article Tableau</h4>
 	<div class="table-wrapper">
 										<table class="alt">
 		
-		<thead> <th> Titre </th><th> Description </th> <th> Contenu </th> <th> Frais </th>   <th> Prix </th>    <th> Achat </th> </thead>
+		<thead> <th> Titre </th> <th> Rubrique </th>  <th> Pays </th>
+		<th> Description </th> <th> Contenu </th>   <th> Like </th> <th> Dislike  </th></thead>
 			  
 			  	<tbody>
 			  	
@@ -246,15 +270,16 @@
 				<tr>
 				
 					<td><c:out value="${ modelVoir.article.titre}"/></td>
+					<td><c:out value="${modelVoir.article.rubrique}"/></td>
+					
+					
+					<td><c:out value="${modelVoir.article.pays}"/></td>
 					
 					<td><c:out value="${modelVoir.article.description}"/></td>
 					
 					<td><c:out value="${modelVoir.article.contenu}"/></td>
 					
 					
-					<td><c:out value="${modelVoir.article.frais}"/></td>
-					
-					<td><c:out value="${modelVoir.article.prix}"/></td>
 				
 				
  	
@@ -279,7 +304,8 @@
 	<div class="table-wrapper">
 										<table class="alt">
 		
-		<thead> <th> Titre </th><th> Description </th> <th> Contenu </th> <th> Frais </th>   <th> Prix </th>    <th> Achat </th> </thead>
+		<thead><th> Titre </th> <th> Rubrique </th>  <th> Pays </th>
+		<th> Description </th> <th> Contenu </th>   <th> Like </th> <th> Dislike  </th></thead>
 			  
 			  	<tbody>
 			  	
