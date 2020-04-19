@@ -144,7 +144,7 @@
 				<th> Pays </th> <th> Titre </th> 	
 				 <th> Rubrique </th> <th> Secteur </th>
 				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				   <th> Achat </th> <th> Voir </th> </thead>
+				   <th> Voir </th> <th> Like </th> <th> Dislike </th> </thead>
 				 
 			  	<tbody>
 			  	
@@ -176,11 +176,22 @@
 								
 							
 				
-					
-							<td> <a  href="acheterArticle?acheter=${article.id}" > Acheter </a> </td> 
 					 
  		
 							<td>		<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
+							
+							
+				
+		<td> <a href="voirArticle?like=${article.id}"> 
+		<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+		</a>
+		
+		<td> <a href="voirArticle?dislike=${article.id}">  
+			<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.jpg" alt="" /></span><span class="title"> </span>
+		</a>
+		</tr> 
+			 
+			 
 			  	
 						</tr> 
 			  	

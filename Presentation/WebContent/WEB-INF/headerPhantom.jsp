@@ -8,6 +8,10 @@
 
 		<%@ page import="utilisateurs.entite.Role" %>
 		
+			<%@ page import="contenu.enume.Rubriques" %>
+			
+						<%@ page import="contenu.enume.Rubriques" %>
+									<%@ page import="contenu.enume.Secteur" %>
 				<!-- Header -->
 				
 						
@@ -20,6 +24,12 @@
 								<a href="Shopping" class="logo">
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title"> Help Sense</span>
 								</a>
+								
+								
+								<!-- Logo -->
+								<a href="Shopping" class="logo">
+									<span class="symbol"><img height="70" width="70" src="Images-Project/HelpSense.jpg" alt="" /></span><span class="title"> Help Sense</span>
+								</a>
 
 							<!-- Nav -->
 								<nav>
@@ -27,24 +37,120 @@
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
+								
+								
 
 						</div>
 					</header>
 
 <div>
 
+
+						<a href="Shopping" class="logo">
+									
+									
+									<span class="symbol"><img width="1100" height="350" src="Images-Project/book_savoir.jpg" alt="" /></span><span class="title">  </span>
+								</a>
+								
+							
 <!--  Menu BAR UP  -->
 	
                 <nav >
                     <ul>
-                   	 <li><a href="Accueil"> Accueil</a></li>
-                      	
-
-				 			<li><a href="Shopping"> Actualités </a></li>
-							 
+                    
+                   
+                
+                
+                   			<li>
+                   		
+                   			<li><a href="Accueil"> Accueil</a>
+			                      	
+			
+							 			<a href="Shopping"> Actualités </a></li>
+           
+                   					
+								
+										
+										
+										
+								
+										
+										<ul>
+										
+										<li> <a href="choixContenu"> Explorer par Feeds : </a>
+										<select name="paysName"> 
+												
+												<c:forEach var="pays" items="${paysListe }">
+												<option> <c:out value="${pays}"/> </option>
+												
+												
+														
+												</c:forEach>
+												
+												</select>
+												
+										
+													<select name="Secteur"  > 
+														
+														<c:forEach var="secteur" items="${Secteur.values() }">
+														<option> <c:out value="${secteur}"/> </option>
+														
+														</c:forEach>
 					
+														</select>
+														
+													
+													
+														 <select name="choixRubrique" > 
+														 
+														 
+													<c:forEach var="rubriqueVal" items="${rubriquesListe}">
+																
+																<option> <c:out value="${rubriqueVal}"/> </option>
+																
+																
+														</c:forEach>
+												</select>
+				
+													
+			
+												 <select name="acronymeTheme"> 
+												
+												<c:forEach var="theme" items="${modelTheme.themes }">
+												<option> <c:out value="${theme.theme_intitule}"/> </option>
+												
+												
+														
+														
+												</c:forEach>
+												
+												</select>
+												
+										</li>
+										</ul>
+										
+									
+										
+									    
+												
+											
+														
+
+                   			
+			                            		</li>
+                   
+                   
+                   				
+										
+                
+                   	
+						
 				
 						<c:if test="${sessionScope.userRole == Role.Administrateur }">
+						
+						
+														
+														
 							<li> <a href="gererCategories"> Creer une Categorie</a>
 						<select name="acronymeThemeHeader" value="exploration" > 
 														
@@ -57,54 +163,8 @@
 									</li> 
 						</c:if>
 				
-						<c:if test="${!empty sessionScope.userId}">
-					
-					
-							  
-							  
-									<ul >
-									
-								
-									
-										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li> 
-									
-											
-											
-										<li> <a  href="mesCommandes"> Mes échanges </a> </li> 
-										</ul>
-									
-												
-										
-										<ul>
-										<li> <a href="choixContenu"> Explorer par Feeds </a>
-											<select name="rubriqueName"  > 
-														
-														<c:forEach var="rubrique" items="${rubriquesList }">
-														<option> <c:out value="${rubrique}"/> </option>
-														
-														</c:forEach>
-					
-														</select>
-														
-														</li>											
-										
-										
-									
-									
-										
-										
-												
-									
-									</ul>
-							
-							</c:if>	
 				
-			
-			
-	 			
-							 
-							 		
-							<c:if test="${empty sessionScope.utilisateur}">
+						<c:if test="${empty sessionScope.utilisateur}">
 							   
 							<ul>										
 												 
@@ -118,6 +178,109 @@
 							</ul>
 							</c:if>
 							
+				
+				
+				
+				
+				
+				
+						<c:if test="${!empty sessionScope.userId}">
+					
+					
+							  
+							  
+									
+								
+								<li> <a href="compte"> </a>
+								
+									
+										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
+											
+										<a  href="mesCommandes"> Mes échanges </a>
+										 </li> 
+									
+									
+									
+										 
+							
+									</li>
+									
+										
+									
+
+										
+									
+												
+								
+										<li> <a href="choixContenu"> Explorer par Feeds </a>
+										
+										
+										<select name="paysName"> 
+												
+												<c:forEach var="pays" items="${paysListe }">
+												<option> <c:out value="${pays}"/> </option>
+												
+												
+														
+												</c:forEach>
+												
+												</select>
+												
+										
+													<select name="Secteur"  > 
+														
+														<c:forEach var="secteur" items="${Secteur.values() }">
+														<option> <c:out value="${secteur}"/> </option>
+														
+														</c:forEach>
+					
+														</select>
+														
+													
+													
+														 <select name="choixRubrique" > 
+														 
+														 
+													<c:forEach var="rubriqueVal" items="${rubriquesListe}">
+																
+																<option> <c:out value="${rubriqueVal}"/> </option>
+																
+																
+														</c:forEach>
+												</select>
+				
+													
+			
+												 <select name="acronymeTheme"> 
+												
+												<c:forEach var="theme" items="${modelTheme.themes }">
+												<option> <c:out value="${theme.theme_intitule}"/> </option>
+												
+												
+														
+														
+												</c:forEach>
+												
+												</select>
+												
+									    
+												
+											
+														
+
+								</li>
+										
+											
+									
+							
+						</c:if>
+		
+			
+			
+	 			
+							 
+							 		
+					
  	
  	
  						  
@@ -134,20 +297,16 @@
 											
 										<li> <a  href="mesVentes"> Mes Analyses </a> </li> 
 									
-										<li> <a href="gererCategories"> Creer une Categorie</a>
-										<select name="acronymeThemeHeader"  > 
-														
-														<c:forEach var="theme" items="${modelTheme.themes }">
-														<option> <c:out value="${theme.theme_intitule}"/> </option>
-														
-														</c:forEach>
-					
-														</select>
-														
-														</li>
+										
 														
 										<li> <a href="mesAchats"> Mes Follows </a> </li> 
 										
+										
+										<li> <a  href="addArticleMVC"> Déposer une Analyse </a> </li>
+											
+										<li><a  href="mesCommandes"> Mes échanges </a>
+										 </li> 
+									
 										
 										
 										
@@ -157,16 +316,17 @@
 										<li value="community">
 										<ol>
 										
-										
-										<li> <a  href="Forum"> Forum </a> </li> 
+									
 											
-										<li> <a  href=fieldTchat> Thématique Tchat </a> </li> 
+										<li> <a  href=fieldTchat> Forum </a> </li> 
 												
 												
 										<li> <a  href=community> Communauté </a> </li> 
 												
 												
 										</ol>
+										
+										</li>
 										
 										
 										

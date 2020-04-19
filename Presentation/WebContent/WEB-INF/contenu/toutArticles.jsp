@@ -49,7 +49,9 @@
 			<thead>  				<th> Pays </th> <th> Titre </th> 	
 				 <th> Rubrique </th> <th> Secteur </th>
 				  <th> Theme </th> <th> Description </th> <th> Contenu </th> 
-				   <th> Achat </th> <th> Voir </th> </thead>
+				   <th> Achat </th> <th> Voir </th> 
+				   
+				   <th> Like </th> <th> Dislike </th></thead>
 				 </thead>
 			  
 			  	<tbody>
@@ -87,9 +89,20 @@
 						 
 					
 						 <td>	<a href="voirArticle?id=${article.id}"> Voir un article</a> </td>
- 
-							
+						 
+				
 		
+	
+ 				<td> <a href="voirArticle?like=${article.id}"> 
+					<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+				</a>
+				
+				<td> <a href="voirArticle?dislike=${article.id}">  
+					<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+				</a>
+				</tr> 
+				
+				
 				</tr> 
 			  	
 
@@ -154,6 +167,14 @@
 						<a href="voirArticle?id=${article.id}"> Voir un article</a>
 	  	
 					
+					<a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+				<a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"></span>
+								</a>
+		
 						</section>
 						
 					
@@ -207,7 +228,14 @@
 						
 						<a href="voirArticle?id=${article.id}"> Voir un article</a>
 	  	
-					
+					<a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Sense</span>
+								</a>
+								
+				<a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+								</a>
+		
 						</section>
 						
 					
@@ -248,7 +276,20 @@
 				
 					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
 					 
- 		
+ 				<a href="voirArticle?like=${article.id}"> Like </a>
+
+			  	
+			  	<a href="voirArticle?dislike=${article.id}"> Dislike </a>
+			  	
+			  				<td> <a href="voirArticle?like=${article.id}">
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Help Sense</span>
+								</a>
+								
+								<td> <a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.jpg" alt="" /></span><span class="title"> Help Sense</span>
+								</a>
+								
+			
 	
 				
 					

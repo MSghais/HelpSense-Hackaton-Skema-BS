@@ -84,8 +84,79 @@
 				
 					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
 					 
+				
+								<a href="voirArticle?like=${article.id}"> Like </a>
 
 			  	
+			  	<a href="voirArticle?dislike=${article.id}"> Dislike </a>
+									
+								</article>
+		
+		
+		</div>
+		
+		
+			<article class="forecast">
+	
+	<h4> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h4>
+				  	
+						<span class="image">
+					<img src="Images-project/book_savoir.jpg" alt="" />
+				</span>
+			
+							
+			  	
+			  	  	<article class="day-forecast">
+			  	  			<fieldset>     Titre </fieldset>       	<c:out value="${ modelVoir.article.titre}"/>			
+			  	  	</article>
+
+								
+					
+			
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
+		
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
+			  	  	</article>
+						
+			  	  		
+			  	  		
+						
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  
+						
+		
+				
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
+			  	
+						
+									
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.contenu}"/>				
+			  	 
+						
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.description}"/>				
+			 
+						
+								
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.frais}"/>				
+			  	  
+						
+									<article class="day-forecast">
+			  	  		<label> Titre  </label>    	<c:out value="${modelVoir.article.prix}"/>				
+			  	  	</article>
+						
+							
+				
+					<a  href="acheterArticle?acheter=${article.id}" > Acheter </a>
+					 
+	
+			  	
+			  			 <a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> Help Sense</span>
+								</a>
+								
+						<a href="voirArticle?dislike=${article.id}">  
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> Help Sense</span>
+								</a>
 									
 								</article>
 		
@@ -185,6 +256,15 @@
 					
 					<td><c:out value="${modelVoir.article.prix}"/></td>
 				
+				
+ 	
+ 				<td> <a href="voirArticle?like=${article.id}"> 
+					<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+				</a>
+				
+				<td> <a href="voirArticle?dislike=${article.id}">  
+					<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.jpg" alt="" /></span><span class="title"> </span>
+				</a>
 				</tr> 
 		     
 		      
@@ -216,6 +296,15 @@
 					<td><c:out value="${modelVoir.article.frais}"/></td>
 					
 					<td><c:out value="${modelVoir.article.prix}"/></td>
+				
+					
+						<td> <a href="voirArticle?like=${article.id}"> Like
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+								<td> <a href="voirArticle?dislike=${article.id}">  Dislike
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.jpg" alt="" /></span><span class="title"> </span>
+								</a>
 				
 				</tr> 
 		     
