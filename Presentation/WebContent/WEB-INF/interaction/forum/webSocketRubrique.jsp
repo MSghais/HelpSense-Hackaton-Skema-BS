@@ -7,6 +7,11 @@
 </head>
 <body>
 
+
+
+			<h2>      <legend> Selectionnez un Tchat spécifique</legend>  </h2>
+			
+			<br>
 <form>
 	<nav>
 	
@@ -55,7 +60,19 @@
 			</li>		
 					
 					
-					
+					<li>
+		 <label for="rubrique_name"> Secteur <span class="requis">* </span> </label>
+		
+													<select name="Secteur"  > 
+														
+														<c:forEach var="secteur" items="${Secteur.values() }">
+														<option> <c:out value="${secteur}"/> </option>
+														
+														</c:forEach>
+											</select>
+							<input type="submit" value="Selectionner"  name="choixTheme"  /> 
+													
+				</li>		
 		<li>
 		<div class="theme">
 		
@@ -94,7 +111,7 @@
 		
 		
   <fieldset>
-    <legend> Poster vos messages dans le Tchat sélectionné </legend>
+    <legend> Ecrivez vos messages </legend>
     <input id="txtMessage" type="text"><br>
     <input onclick="doCloseConnection();" value="Disconnect" type="button">
     <input onclick="doSendMessage();" value="Send" type="button">

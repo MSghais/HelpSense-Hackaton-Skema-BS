@@ -74,27 +74,27 @@
 					
 					
 		<li>
-		<div class="theme">
-		
-			<label>  Choissisez un Theme : </label>
+										
+											<div class="theme">
+										<label>  Secteur </label>
+													<select name="Secteur"  > 
+														
+														<c:forEach var="secteur" items="${Secteur.values() }">
+														<option> <c:out value="${secteur}"/> </option>
+														
+														</c:forEach>
 					
-					
-					 <select name="acronymeTheme"> 
-					
-					<c:forEach var="theme" items="${modelTheme.themes }">
-					<option> <c:out value="${theme.theme_intitule}"/> </option>
-					
-					
-							
-							
-					</c:forEach>
-					
-					</select>
-				
+														</select>
+														
+																		
 		 <input type="submit" value="Selectionner"  name="choixTheme"  /> 
-						
+														
+														</div>
 		
-		</div>
+		
+		<li> 
+		
+		
 	</li>
 	
 	</ul>
@@ -102,6 +102,79 @@
 	</nav>
 			
 	</form>		
+	
+	
+	<form>
+					<div class="inner">	
+						
+						  	
+						  	
+						  	
+			  	<c:forEach var="article" items="${modelContenu.articles}"> 
+			  	
+			  	<c:if test="${ article.status == StatutArticle.DISPONIBLE}">
+			  	
+			  	  	<h4> Titre  : <c:out value="${ article.titre}"/> </h4>
+	  		 
+	  		  	
+	  		  		
+	  		  	<fieldset> Description : <c:out value="${ article.description}"/>   </fieldset>
+
+					<section >
+						<article >
+					<span class="image">
+					<img src="images/labo-pointer.png" alt="" />
+		
+				<a href="voirArticle?id=${article.id}"> Voir un article</a>
+			
+						
+					</span>
+					
+					
+						<aside>
+						
+						<br>
+								
+								
+					 
+						</aside>
+							
+					  
+	
+						</article>
+						
+						<a href="voirArticle?id=${article.id}"> Voir un article</a>
+	  	
+					
+					<a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+				<a href="voirArticle?dislike=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"></span>
+								</a>
+		
+						</section>
+						
+					
+						
+				</c:if>
+				</c:forEach>
+					
+					</div>
+					
+					</form>
+				
+				
+							
+							
+							
+										
+								
+		
+		
+					</div>
+					
 					
 									
 	<body class="is-preload">

@@ -8,7 +8,7 @@
 
 		<%@ page import="utilisateurs.entite.Role" %>
 		
-			<%@ page import="contenu.enume.Rubriques" %>
+			<%@ page import="contenu.enume.Pays" %>
 			
 						<%@ page import="contenu.enume.Rubriques" %>
 									<%@ page import="contenu.enume.Secteur" %>

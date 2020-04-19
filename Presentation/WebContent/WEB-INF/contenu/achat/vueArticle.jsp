@@ -23,33 +23,43 @@
 		
 		
 		
+				<h1>    Fiche signalétique </h1> 
 				
 			
 				<fieldset>
 				
-
-			  	  	
-	<h3> Titre : <c:out value="${ modelVoir.article.titre}"/> </h3>
+	<article class="forecast">
 	
-			<article class="day-forecast">
-	  		<legend> <label> Déposez par  :  <c:out value="${modelVoir.article.vendeur.username}"/>	  à : <c:out value="${modelVoir.article.date}"/>	  </label> 	 </legend>    			
-	  		
-	  						
-			  	  	</article>
-			  	  	  	
-			  	  	  	
-			  	  	  	
+	<h3> Titre de l'Article : <c:out value="${ modelVoir.article.titre}"/> </h3>
+				  	
 						<span class="image">
-					<img width="700px" height="750px" src="images/labo-pointer.png" alt="" />
+					<img src="images/labo-pointer.png" alt="" />
 				</span>
-				
-				<article class="forecast">
-	
 			
 
-		<article class="day-forecast">
-			  	  		
+						
+						<article class="day-forecast">
+			  	  		<label> Theme  </label>    	<c:out value="${modelVoir.article.theme}"/>				
 			  	  	</article>
+			  	  	
+			  	  		
+			  	  		
+			  	  		
+						<article class="day-forecast">
+			  	  		<label> Pays  </label>    	<c:out value="${modelVoir.article.pays}"/>				
+			  	  	</article>
+						
+						
+						<article class="day-forecast">
+			  	  		<label> Rubrique  </label>    	<c:out value="${modelVoir.article.rubrique}"/>				
+			  	  	</article>
+			  	  	
+			  	  	<article class="day-forecast">
+			  	  		<label> Secteur  </label>    	<c:out value="${modelVoir.article.secteur}"/>				
+			  	  	</article>
+						
+						
+					
 						
 						<article class="day-forecast">
 			  	  		<label> Description  </label>    	<c:out value="${modelVoir.article.description}"/>				
@@ -79,9 +89,16 @@
 		
 		</div>
 		
+		<legend> <label> Reactions </label></legend>
+			  			 <a href="voirArticle?like=${article.id}"> 
+									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
+								</a>
+								
+						<a href="voirArticle?dislike=${article.id}">  
+									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
+								</a>
 							
-			<br>
-			<br>
+		
 			
 		
 	
@@ -91,70 +108,22 @@
 	
 	
 	
-	<br>
-
 	
-
-	
-	
-		<div>
-		<h3> Liste des commentaires </h3>
-	
-			<table class="alt">
 		
+		<h3> Posez un commentaire</h3>
 		
 		
 	
-		 	<thead> <th> Utilisateur </th><th> Commentaire </th>  <th> Like </th>  <th> Dislike </th>	</thead>  
-		 	
-		 	
-		 <tbody>
-  	<c:forEach var="commentaire" items="${modelCommentaire.articleAchat.commentaires}"> 
-  	
-  	<c:if test="${ articleAchat.status == StatutArticle.DISPONIBLE}">
-  	
-  
-  		  	<c:if test="${ !empty articleAchat.commentaires }">
-			  	
-		  		
-  	
-				<tr>
-				
-					<td><c:out value="${commentaire.user}"/></td>
-					
-					<td><c:out value="${ commentaire.contenu}"/></td>
-					
-					<td>	 <a href="voirArticle?like=${commentaire.id}"> 
-									<span class="symbol"><img height="70" width="70" src="Images-Project/like.jpg" alt="" /></span><span class="title"> </span>
-								</a>
-								
-				<td>		<a href="voirArticle?dislike=${commentaire.id}">  
-									<span class="symbol"><img height="70" width="70" src="Images-Project/dislike.png" alt="" /></span><span class="title"> </span>
-								</a>
-					
-					<tr>
-		       </c:if>
-		      
-		     
-		      
-		     
-		       
-		      </c:if>
-		      
-		      </c:forEach>
-	       </tbody>
-		     
-		</table>
-		
-			
-				<h4> Votre commentaire</h4>
 	<form action="voirArticle" method="post" > 
 	<fieldset>
-			
+			<label for="commentaireTest"> Commentez <span class="requis">*</span> </label>
+                <input type="text" id="commentaireText" name="commentaireText"   size="250" maxlength="250" />
+                 <span class="erreur">${form.erreurs['art_frais']}</span>
+                <br />
 
 
 			<div class="field">
-			<textarea name="commentaire" id="commentaire" placeholder="Commentez"> </textarea>
+			<textarea name="commentaire" id="commentaire" placeholder="Commenter"></textarea>
 		</div>
            
 
@@ -168,13 +137,13 @@
                  <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
 					
 	</fieldset>
-		</form>
-	
-	</div>
 	
 	
 	
-			<div>
+
+	
+	
+		<div>
 		<h3> Liste des commentaires </h3>
 	
 			<table class="alt">

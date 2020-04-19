@@ -17,7 +17,6 @@
     
     		<%@ page import="contenu.enume.Secteur" %>
     
-    <a href="WEB-INF/JSP/vueConnection.jsp"> Vous n'êtes pas connecté ?</a>
 		
    
 			

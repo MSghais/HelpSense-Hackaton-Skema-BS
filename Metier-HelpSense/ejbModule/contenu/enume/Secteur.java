@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Secteur {
-	 Agroalimentaire, Banque , 
+	 Santé, Pharmaceutique, Agroalimentaire, Banque , 
 	 Assurance, Bois , Papier , Carton , Imprimerie, BTP , Matériaux, 
 	 Chimie , Parachimie , Commerce , Négoce , Distribution, Édition , Communication ,
 	 Multimédia , Électronique , Électricité, Conseil, Audit, Comptabilité, Management, Finance,
-	 Industrie, Pharmaceutique, Informatique , Télécoms,  Automobile , Métallurgie , 
+	 Industrie,  Informatique , Télécoms,  Automobile , Métallurgie , 
 	 Habillement , Transports , Logistique;
 	
 	

@@ -3,6 +3,7 @@ package interaction.forum;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -18,12 +19,15 @@ import javax.servlet.http.HttpSession;
 
 import contenu.entite.Article;
 import contenu.entite.Theme;
+import contenu.enume.Pays;
+import contenu.enume.Rubriques;
 import contenu.metier.article.MetierInterfaceArticle;
 import contenu.metier.theme.MetierInterfaceTheme;
 import contenu.model.ModelAllContent;
-
+import contenu.model.ModelContenu;
 import utilisateurs.entite.Role;
 import utilisateurs.entite.User;
+import utilisateurs.model.ModelUser;
 
 /**
  * Servlet implementation class MVCInscription
@@ -64,13 +68,54 @@ public class ForumThemeService extends HttpServlet {
 	    }
 		
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+    	
+    	
+    	System.out.println("doPOST entree");
+    	
+    	HttpSession session = request.getSession();
+    	
+    	User userConnecter = (User)session.getAttribute(ATTRIBUT_USER);
+    	System.out.println("User connecter");
+    	
+    	
+    	System.out.println("MyServlet Tout article");
+		ModelAllContent modelTheme = new ModelAllContent();
+		
+		List<Theme> themes = metierTheme.lireTousTheme();
+		modelTheme.setThemes(themes);
+		
+		request.setAttribute("modelTheme", modelTheme);
+
+		
+		Long user_id = (Long) session.getAttribute(ATTRIBUT_USER_ID);
+		System.out.println("userId = " + user_id);
+		User userSession = (User) session.getAttribute(ATTRIBUT_USER);
+		System.out.println("User session Tout Article = " + userSession);
+		
+		
+	 	Map<Rubriques, String> lookUp = Rubriques.setLookUpKeyValues();
+    	System.out.println(lookUp);
+		request.setAttribute("lookRubrique", lookUp);  	
+    	Collection<String> rubriquesList = lookUp.values();
+    	System.out.println(rubriquesList);   
+    	request.setAttribute("rubriquesListe", rubriquesList);
+    	
+    	
+    	
+    	Map<Pays, String> pays = Pays.setLookUpKeyValues();
+    	System.out.println(pays);
+    	Collection<String> paysListe = pays.values();
+    	System.out.println(paysListe) ;
+    	request.setAttribute("paysListe", paysListe);	
+    	
+    	
+		ModelUser modelUser = new ModelUser(); 
+		ModelContenu modelContenu = new ModelContenu(); 
+		
+
+		request.setAttribute("modelContenu", modelContenu);
 	        /* Préparation de l'objet formulaire */
-	    	System.out.println("doPOST entree");
-	
-	    	HttpSession session = request.getSession();
 	    	
-	    	User userConnecter = (User)session.getAttribute(ATTRIBUT_USER);
-	    	System.out.println("User connecter");
 	    	
 	      	request.getRequestDispatcher(VUE_FORUM_THEME).forward(request, response);
 	    	
